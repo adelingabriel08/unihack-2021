@@ -26,6 +26,14 @@ namespace HelpYourCity.API
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddPersistenceServices(Configuration.GetConnectionString("HelpYourCity"));
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "CorsPolicy",
+                    builder =>
+                    {
+                        builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +47,7 @@ namespace HelpYourCity.API
                 app.UseSwaggerUI();
             // }
             app.UseRouting();
+            app.UseCors("CorsPolicy");
             // app.UseHttpsRedirection();
 
             app.UseAuthorization();
