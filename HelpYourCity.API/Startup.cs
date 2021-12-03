@@ -1,4 +1,5 @@
-﻿using HelpYourCity.Persistence;
+﻿using HelpYourCity.Core.MapperProfiles;
+using HelpYourCity.Persistence;
 using HelpYourCity.Persistence.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,19 +30,6 @@ namespace HelpYourCity.API
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddPersistenceServices(Configuration.GetConnectionString("HelpYourCity"));
-            services.AddCors(options =>
-            {
-                options.AddPolicy(name: "CorsPolicy",
-                    builder =>
-                    {
-                        builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
-                    });
-            });
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
