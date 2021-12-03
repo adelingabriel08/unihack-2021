@@ -33,13 +33,13 @@ namespace HelpYourCity.API
         {
 
             // Configure the HTTP request pipeline.
-            if (env.IsDevelopment())
-            {
+            // if (env.IsDevelopment())
+            // {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            }
+            // }
             app.UseRouting();
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
