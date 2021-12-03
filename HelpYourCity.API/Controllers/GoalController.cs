@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using HelpYourCity.Core.Contracts;
-using HelpYourCity.Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HelpYourCity.API.Controllers
