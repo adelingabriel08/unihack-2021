@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace HelpYourCity.API.Controllers
 {
     [ApiController]
-    [Route("Goals")]
+    [Route("api/goals")]
     public class GoalController : ControllerBase
     {
         private readonly IGoalService _goalService;
