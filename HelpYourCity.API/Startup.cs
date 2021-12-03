@@ -1,4 +1,5 @@
-﻿using HelpYourCity.Persistence;
+﻿using System.Text.Json.Serialization;
+using HelpYourCity.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +27,8 @@ namespace HelpYourCity.API
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddPersistenceServices(Configuration.GetConnectionString("HelpYourCity"));
+            services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "CorsPolicy",
