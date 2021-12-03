@@ -1,0 +1,15 @@
+<mat-card class="goal-card">
+  <mat-card-header>
+    <mat-card-title>{{goal.title}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="goal.image" alt="card-image">
+  <mat-card-content>
+    <p class="medium-text">{{goal.shortDescription}}</p>
+  </mat-card-content>
+  <mat-card-footer>
+    <app-progress-bar
+      [current]="goal.donors" [goal]="goal.target"
+      [percent]="(goal.donors * 100) / goal.target"
+    ></app-progress-bar>
+  </mat-card-footer>
+</mat-card>

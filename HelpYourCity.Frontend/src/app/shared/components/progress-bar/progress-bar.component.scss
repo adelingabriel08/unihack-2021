@@ -1,0 +1,17 @@
+@use 'src/assets/styles/variables';
+
+:host {
+  width: 100%;
+}
+
+.progress-bar {
+  width: 100%;
+  border: 1px solid black;
+  background-color: variables.$green;
+  text-align: center;
+}
+
+p {
+  padding: 10px 0;
+  margin: 0;
+}
