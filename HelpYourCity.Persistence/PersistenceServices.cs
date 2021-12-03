@@ -15,6 +15,7 @@ namespace HelpYourCity.Persistence
                     b => b.MigrationsAssembly("HelpYourCity.API")
                 ));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IGoalService,GoalService>();
             return services;
         }
     }
