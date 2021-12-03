@@ -1,4 +1,5 @@
 export interface IGoal {
+  id: string;
   title: string;
   image: string;
   shortDescription: string;

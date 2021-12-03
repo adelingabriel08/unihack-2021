@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@use 'src/assets/styles/variables';
+
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Montserrat', Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Montserrat', Roboto, "Helvetica Neue", sans-serif; background-color: variables.$background; }
 
 * {
   font-family: 'Montserrat', Roboto, "Helvetica Neue", sans-serif;
@@ -23,15 +25,15 @@ mat-card-title {
 
 .heading {
   font-family: 'Montserrat-bold', Roboto, "Helvetica Neue", sans-serif;
-  font-size: 30px;
+  font-size: 45px;
   @media screen and (max-width: 1200px) {
-    font-size: 25px;
+    font-size: 38px;
   }
   @media screen and (max-width: 750px) {
-    font-size: 20px;
+    font-size: 30px;
   }
   @media screen and (max-width: 450px) {
-    font-size: 17px;
+    font-size: 25px;
   }
 }
 

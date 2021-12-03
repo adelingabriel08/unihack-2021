@@ -1,0 +1,14 @@
+<div class="page-container">
+  <div class="goal-detail-card">
+      <div class="content-container">
+        <p class="large-text">{{goal.description}}</p>
+        <div>
+          <div class="contribution-cards-container">
+            <app-contribution [goal]="goal" [contributionType]="contributionTypes.DONATION"></app-contribution>
+            <app-contribution [goal]="goal" [contributionType]="contributionTypes.VOLUNTEERING"></app-contribution>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
