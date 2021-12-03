@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using HelpYourCity.Core.Contracts;
 using HelpYourCity.Core.Entities;
+using HelpYourCity.Core.ViewModels;
 using HelpYourCity.Persistence.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,9 +19,9 @@ namespace HelpYourCity.API.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> PostOne(Proposal proposal)
+        public async Task<IActionResult> PostOne(ProposalViewModel proposalVm)
         {
-            var response = await _proposalService.AddProposal(proposal);
+            var response = await _proposalService.AddProposal(proposalVm);
             return Ok(response);
         }
         
