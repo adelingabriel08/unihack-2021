@@ -1,6 +1,8 @@
 ﻿using HelpYourCity.Persistence;
+using HelpYourCity.Persistence.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,8 +23,9 @@ namespace HelpYourCity.API
         {
 
             // Add services to the container.
-
-            services.AddControllers();
+            
+            services.AddControllersWithViews();
+            services.AddRazorPages();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddPersistenceServices(Configuration.GetConnectionString("HelpYourCity"));
@@ -34,29 +37,38 @@ namespace HelpYourCity.API
                         builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
                     });
             });
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
-            // Configure the HTTP request pipeline.
-            // if (env.IsDevelopment())
-            // {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            // }
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            // for wwwroot for css and js stuff
+            app.UseStaticFiles();
+
             app.UseRouting();
             app.UseCors("CorsPolicy");
-            // app.UseHttpsRedirection();
-
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "admin/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
+
         }
     }
 }
