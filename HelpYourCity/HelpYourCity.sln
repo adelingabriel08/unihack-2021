@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpYourCity.API", "HelpYourCity.API\HelpYourCity.API.csproj", "{0660EA17-0048-414F-82F7-D9BA52898041}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpYourCity.Core", "HelpYourCity.Core\HelpYourCity.Core.csproj", "{1A560ED9-D42B-4567-852F-D54D05B4C8DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpYourCity.Persistence", "HelpYourCity.Persistence\HelpYourCity.Persistence.csproj", "{49401607-895D-4A9B-9ACE-5A73243A864F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0660EA17-0048-414F-82F7-D9BA52898041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0660EA17-0048-414F-82F7-D9BA52898041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0660EA17-0048-414F-82F7-D9BA52898041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0660EA17-0048-414F-82F7-D9BA52898041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A560ED9-D42B-4567-852F-D54D05B4C8DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A560ED9-D42B-4567-852F-D54D05B4C8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A560ED9-D42B-4567-852F-D54D05B4C8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A560ED9-D42B-4567-852F-D54D05B4C8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49401607-895D-4A9B-9ACE-5A73243A864F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49401607-895D-4A9B-9ACE-5A73243A864F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49401607-895D-4A9B-9ACE-5A73243A864F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49401607-895D-4A9B-9ACE-5A73243A864F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
