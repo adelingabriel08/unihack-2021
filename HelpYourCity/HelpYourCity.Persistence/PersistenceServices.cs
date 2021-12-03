@@ -1,4 +1,6 @@
-﻿using HelpYourCity.Persistence.EF;
+﻿using HelpYourCity.Core.Contracts;
+using HelpYourCity.Persistence.EF;
+using HelpYourCity.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +14,7 @@ namespace HelpYourCity.Persistence
                 options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString),
                     b => b.MigrationsAssembly("HelpYourCity.API")
                 ));
+            services.AddScoped<ITestService, TestService>();
             return services;
         }
     }
