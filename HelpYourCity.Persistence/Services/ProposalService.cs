@@ -35,7 +35,7 @@ namespace HelpYourCity.Persistence.Services
 
             var proposalEntry = await base.AddOne(proposal);
             
-            return new Proposal();
+            return proposalEntry;
         }
     }
 }
