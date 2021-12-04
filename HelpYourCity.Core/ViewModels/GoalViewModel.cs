@@ -11,7 +11,7 @@ namespace HelpYourCity.Core.ViewModels
         public string Description { get; set; }
         public uint Target { get; set; }
         public uint PricePerUnit { get; set; }
-        public string Slug { get; set; }
+        public string? Slug { get; set; }
         public string GoalItemName { get; set; }
     }
 }
