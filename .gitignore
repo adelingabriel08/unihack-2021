@@ -285,7 +285,7 @@ __pycache__/
 ### Angular ###
 ## Angular ##
 # compiled output
-dist/
+HelpYourCity.Frontend/dist/
 tmp/
 app/**/*.js
 app/**/*.js.map

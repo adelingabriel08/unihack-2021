@@ -11,6 +11,8 @@ import {ContributionComponent} from './pages/goal-details-page/contribution/cont
 import {SharedModule} from './shared/shared.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
+import {MatButtonModule} from "@angular/material/button";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {GoalEventsPageComponent} from './pages/goal-events-page/goal-events-page.component';
@@ -26,9 +28,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AppComponent,
     GoalDetailsPageComponent,
     ContributionComponent,
+    ContributionComponent,
     GoalEventsPageComponent,
     EventCardComponent,
     EventApplicationFormComponent,
+    PaymentPageComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatDialogModule,
     MatSnackBarModule,
     ReactiveFormsModule
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
