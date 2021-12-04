@@ -20,4 +20,9 @@ export class ProposalService {
     const url = this.baseUrl + 'content';
     return this._http.post<IFileResponse>(url, formData);
   }
+
+  addProposal(request: any): Observable<any> {
+    const url = this.baseUrl + 'proposal';
+    return this._http.post(url, request);
+  }
 }

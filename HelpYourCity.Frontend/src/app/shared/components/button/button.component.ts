@@ -9,5 +9,6 @@ export class ButtonComponent {
   @Input() selected = false;
   @Input() label: string;
   @Input() hoverEnabled = false;
+  @Input() disabled = false;
   @Output() readonly action = new EventEmitter<any>();
 }

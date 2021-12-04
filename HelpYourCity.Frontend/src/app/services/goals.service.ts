@@ -3,6 +3,7 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IGoal} from '../models/goal.model';
+import {IVolunteeringEvent} from '../models/volunteering-event.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,10 @@ export class GoalsService {
   getBySlug(slug: string): Observable<IGoal> {
     const url = this.baseUrl + `/${slug}`;
     return this._http.get<IGoal>(url);
+  }
+
+  getVolunteeringEvents(id: number): Observable<IVolunteeringEvent[]> {
+    const url = this.baseUrl + `/${id}/events`;
+    return this._http.get<IVolunteeringEvent[]>(url);
   }
 }

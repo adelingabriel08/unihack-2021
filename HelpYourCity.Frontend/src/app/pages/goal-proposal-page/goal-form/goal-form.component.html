@@ -33,7 +33,7 @@
     </mat-error>
   </ng-container>
   <mat-form-field appearance="fill">
-    <input formControlName="target" matInput placeholder="Goal Target">
+    <input formControlName="target" matInput type="number" placeholder="Goal Target">
   </mat-form-field>
 
   <ng-container *ngIf="!form.controls['pricePerUnit'].untouched && form.controls['pricePerUnit'].errors">
@@ -42,7 +42,7 @@
     </mat-error>
   </ng-container>
   <mat-form-field appearance="fill">
-    <input formControlName="pricePerUnit" matInput placeholder="Price per Unit">
+    <input formControlName="pricePerUnit" matInput type="number" placeholder="Price per Unit">
   </mat-form-field>
 
   <ng-container *ngIf="!form.controls['goalItemName'].untouched && form.controls['goalItemName'].errors">

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {GoalDetailsPageComponent} from './pages/goal-details-page/goal-details-page.component';
+import {GoalEventsPageComponent} from './pages/goal-events-page/goal-events-page.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'goal/:slug',
     component: GoalDetailsPageComponent
+  },
+  {
+    path: 'goal/events/:slug',
+    component: GoalEventsPageComponent
   },
   {
     path: '**',

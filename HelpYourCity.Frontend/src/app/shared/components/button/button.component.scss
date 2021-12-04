@@ -11,6 +11,9 @@
   span {
     color: black;
   }
+  @media screen and (max-width: 550px) {
+    padding: 10px 20px;
+  }
 }
 
 .selected {
@@ -21,6 +24,10 @@
   }
 }
 
-.hover:hover {
-  background-color: variables.$green;
+.disabled {
+  background-color: #F6F6F6;
+  border: none;
+  span {
+    color: lightgray;
+  }
 }

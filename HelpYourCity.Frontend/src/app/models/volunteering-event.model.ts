@@ -1,6 +1,6 @@
 export interface IVolunteeringEvent {
-  startDate: Date;
-  endDate: Date;
+  startTime: Date;
+  endTime: Date;
   location: string;
   details: string;
   skills: string;

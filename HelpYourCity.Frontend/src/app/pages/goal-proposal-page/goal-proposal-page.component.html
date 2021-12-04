@@ -15,6 +15,11 @@
                     [hoverEnabled]="true" label="Submit a goal"
                     (action)="switchForm(selectedFormTypes.GOAL)"></app-button>
       </div>
+      <app-button [hoverEnabled]="true" label="Submit"
+                  (action)="submit()"
+                  class="submit-button"
+                  [disabled]="!personalInfoForm.form.valid || !goalForm.form.valid">
+      </app-button>
     </mat-card-content>
   </mat-card>
 </div>

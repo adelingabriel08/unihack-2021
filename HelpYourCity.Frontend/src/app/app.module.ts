@@ -12,24 +12,30 @@ import {SharedModule} from './shared/shared.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { GoalEventsPageComponent } from './pages/goal-events-page/goal-events-page.component';
+import { EventCardComponent } from './pages/goal-events-page/event-card/event-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GoalDetailsPageComponent,
-    ContributionComponent
+    ContributionComponent,
+    GoalEventsPageComponent,
+    EventCardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatCardModule,
-    SharedModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatCardModule,
+        SharedModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatProgressSpinnerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

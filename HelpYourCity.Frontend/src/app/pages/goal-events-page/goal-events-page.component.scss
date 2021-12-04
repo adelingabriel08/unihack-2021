@@ -1,0 +1,27 @@
+.page-container {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cards-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.heading {
+  width: 50%;
+  text-align: center;
+  line-height: 40px;
+  margin: 70px 0 30px 0;
+}
+
+app-event-card {
+  margin: 20px;
+}

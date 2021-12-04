@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GoalsService} from '../../services/goals.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {IGoal} from '../../models/goal.model';
 import {ContributionTypes} from '../../types';
 
@@ -24,5 +24,4 @@ export class GoalDetailsPageComponent implements OnInit {
       this.goal = res;
     });
   }
-
 }

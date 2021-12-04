@@ -1,3 +1,8 @@
-<button class="normal" [class.selected]="selected" [class.hover]="!selected && hoverEnabled" (click)="action.emit()">
+<button class="normal"
+        [class.selected]="selected"
+        [class.disabled]="disabled"
+        [disabled]="disabled"
+        [style.cursor]="!disabled ? 'pointer' : 'auto'"
+        (click)="action.emit()">
   <span class="small-text">{{label}}</span>
 </button>

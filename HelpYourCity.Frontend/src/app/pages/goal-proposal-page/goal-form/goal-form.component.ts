@@ -12,7 +12,7 @@ export class GoalFormComponent {
   responseFile: IFileResponse | undefined;
   form: FormGroup = this._formBuilder.group({
     title: [null, [Validators.required]],
-    image: [null, [Validators.required]],
+    imageId: [null, [Validators.required]],
     shortDescription: ['', [Validators.required]],
     description: [null, [Validators.required]],
     target: [null, [Validators.required]],
@@ -32,5 +32,6 @@ export class GoalFormComponent {
     }
     const file: File = files[0];
     this.responseFile = await this._proposalService.uploadFile(file).toPromise();
+    this.form.controls['imageId'].setValue(this.responseFile?.id);
   }
 }
