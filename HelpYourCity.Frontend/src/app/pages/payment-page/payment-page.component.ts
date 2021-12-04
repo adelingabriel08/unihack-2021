@@ -14,7 +14,7 @@ export class PaymentPageComponent implements OnInit {
   private _stripeOptions: RedirectToCheckoutOptions = {
     successUrl: 'http://google.com',
     cancelUrl: 'http://localhost:4200/payment',
-    lineItems: [{ price: 'price_1K2v9cLZUCeOGRZpR3zc3Pcq', quantity: 5}],
+    lineItems: [{ price: 'price_1K2x5oLZUCeOGRZpWeZPKbqx', quantity: 5}],
     mode: 'payment',
     customerEmail: 'email@testemail.com',
     submitType: 'pay'

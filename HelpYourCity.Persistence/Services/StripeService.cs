@@ -9,19 +9,32 @@ namespace HelpYourCity.Persistence.Services
 {
     public class StripeService : IStripeService
     {
-        public async Task AddProductToStripe(Goal goal)
+        public async Task<string> AddProductToStripe(Goal goal)
         {
-            var options = new ProductCreateOptions
+            var productOptions = new ProductCreateOptions
             {
-                Name = goal.Title,
+                Name = goal.GoalItemName,
                 Active = true,
-                Caption = goal.ShortDescription,
+                Description = goal.ShortDescription,
                 Images = new List<string>(){"https://www.thespruce.com/thmb/tClzdZVdo_baMV7YA_9HjggPk9k=/4169x2778/filters:fill(auto,1)/the-difference-between-trees-and-shrubs-3269804-hero-a4000090f0714f59a8ec6201ad250d90.jpg"}
             };
 
-            var service = new ProductService();
-            var product = await service.CreateAsync(options);
-            Console.WriteLine(product.ToJson());
+            var productService = new ProductService();
+            var product = await productService.CreateAsync(productOptions);
+
+            var priceOptions = new PriceCreateOptions()
+            {
+                Active = true,
+                BillingScheme = "per_unit",
+                Currency = "eur",
+                Nickname = "PricePerUnit",
+                Product = product.Id,
+                UnitAmount = goal.PricePerUnit*100 
+                // multiplied because we do not have floating prices
+            };
+            var priceService = new PriceService();
+            var price = await priceService.CreateAsync(priceOptions);
+            return product.Id;
         }
     }
 }

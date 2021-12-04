@@ -5,6 +5,6 @@ namespace HelpYourCity.Core.Contracts
 {
     public interface IStripeService
     {
-        Task AddProductToStripe(Goal goal);
+        Task<string> AddProductToStripe(Goal goal);
     }
 }
