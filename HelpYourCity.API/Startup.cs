@@ -1,3 +1,5 @@
+﻿using System.Text.Json.Serialization;
+using HelpYourCity.Persistence;
 ﻿using HelpYourCity.Core.MapperProfiles;
 using HelpYourCity.Persistence;
 using HelpYourCity.Persistence.EF;
@@ -29,6 +31,9 @@ namespace HelpYourCity.API
             services.AddRazorPages();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            services.AddPersistenceServices(Configuration.GetConnectionString("HelpYourCity"));
+            services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
             services.AddCors(options =>
                 {
                     options.AddPolicy(name: "CorsPolicy", builder =>
