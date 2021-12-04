@@ -5,13 +5,26 @@
 }
 
 .progress-bar {
+  height: 30px;
   width: 100%;
   border: 1px solid black;
-  background-color: variables.$green;
-  text-align: center;
+  position: relative;
 }
 
-p {
-  padding: 10px 0;
+.inner-bar {
+  position: absolute;
+  height: 100%;
+  background-color: variables.$green;
+}
+
+.bar-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   margin: 0;
+  z-index: 999;
 }

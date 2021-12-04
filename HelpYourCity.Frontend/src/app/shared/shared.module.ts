@@ -4,20 +4,29 @@ import {ProgressBarComponent} from './components/progress-bar/progress-bar.compo
 import {ButtonComponent} from './components/button/button.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MenuComponent } from './components/menu/menu.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [
     ProgressBarComponent,
-    ButtonComponent
+    ButtonComponent,
+    MenuComponent
   ],
   exports: [
     ProgressBarComponent,
-    ButtonComponent
+    ButtonComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ]
 })
 export class SharedModule {

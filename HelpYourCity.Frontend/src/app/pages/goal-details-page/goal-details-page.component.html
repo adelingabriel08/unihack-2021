@@ -1,8 +1,7 @@
 <div class="page-container">
   <ng-container *ngIf="goal">
     <div class="goal-detail-card">
-      <app-progress-bar [current]="goal.donors" [goal]="goal.target"
-                        [percent]="(goal.donors * 100) / goal.target"></app-progress-bar>
+      <app-progress-bar [current]="goal.numberOfDonations" [goal]="goal.target"></app-progress-bar>
       <div class="content-container">
         <p class="large-text">{{goal.description}}</p>
         <div>

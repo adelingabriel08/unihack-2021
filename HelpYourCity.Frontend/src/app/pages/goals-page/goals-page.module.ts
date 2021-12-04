@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {GoalCardComponent} from './goal-card/goal-card.component';
 import {MatCardModule} from '@angular/material/card';
 import {SharedModule} from '../../shared/shared.module';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const routes: Routes = [
   {
@@ -18,12 +19,13 @@ const routes: Routes = [
     GoalsPageComponent,
     GoalCardComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatCardModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatCardModule,
+        SharedModule,
+        MatProgressSpinnerModule
+    ]
 })
 export class GoalsPageModule {
 }

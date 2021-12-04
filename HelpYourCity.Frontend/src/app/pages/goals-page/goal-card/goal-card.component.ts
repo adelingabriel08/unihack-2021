@@ -8,7 +8,4 @@ import {IGoal} from '../../../models/goal.model';
 })
 export class GoalCardComponent {
   @Input() goal: IGoal;
-
-  constructor() {
-  }
 }

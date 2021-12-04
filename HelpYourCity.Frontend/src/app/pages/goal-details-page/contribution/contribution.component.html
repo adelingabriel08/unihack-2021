@@ -1,5 +1,6 @@
 <div class="contribution-card">
-  <p class="medium-text">{{goal.pricePerUnit + ' / ' + goal.goalItemName}}</p>
+  <p *ngIf="contributionType === contributionTypes.DONATION"
+     class="medium-text">{{goal.pricePerUnit + ' / ' + goal.goalItemName}}</p>
   <ng-container *ngIf="contributionType === contributionTypes.DONATION">
     <div class="column">
       <div class="row">

@@ -1,7 +1,9 @@
+import {IFileResponse} from './file-response.model';
+
 export interface IGoal {
   id: number;
   title: string;
-  image: string;
+  image: IFileResponse;
   shortDescription: string;
   description: string;
   target: number;
@@ -9,4 +11,5 @@ export interface IGoal {
   goalItemName: string;
   slug: string;
   donors: number;
+  numberOfDonations: number;
 }
