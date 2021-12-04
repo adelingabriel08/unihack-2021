@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.IO;
+using System.Text.Json.Serialization;
 using HelpYourCity.Persistence;
 ﻿using HelpYourCity.Core.MapperProfiles;
 using HelpYourCity.Persistence;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Stripe;
 
@@ -63,7 +65,22 @@ namespace HelpYourCity.API
             app.UseSwagger();
             app.UseSwaggerUI();
             // for wwwroot for css and js stuff
+            var uploadedsDirectory = Path.Combine("content");
+            if (!Directory.Exists(uploadedsDirectory))
+            {
+                Directory.CreateDirectory(uploadedsDirectory);
+            }
+            
             app.UseStaticFiles();
+            
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(env.ContentRootPath, "content")),
+                RequestPath = "/content",
+                
+            });
+
 
             app.UseRouting();
             app.UseCors("CorsPolicy");

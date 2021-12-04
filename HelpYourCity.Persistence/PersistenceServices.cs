@@ -1,4 +1,5 @@
 ﻿using HelpYourCity.Core.Contracts;
+using HelpYourCity.Core.Entities;
 using HelpYourCity.Persistence.EF;
 using HelpYourCity.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,9 @@ namespace HelpYourCity.Persistence
             services.AddScoped<IProposalService, ProposalService>();
             services.AddScoped<IEventsService,EventsService>();
             services.AddScoped<IDonorService,DonorService>();
+            services.AddScoped<IFileService,FileService>();
+            services.AddScoped<IEmailService,EmailService>();
+            services.AddScoped<IVolunteerService,VolunteerService>();
             
             services.AddScoped<IStripeService, StripeService>();
             return services;

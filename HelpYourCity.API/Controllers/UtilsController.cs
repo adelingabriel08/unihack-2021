@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using HelpYourCity.Core.Contracts;
 using AutoMapper;
 using HelpYourCity.Core.Contracts;
 using HelpYourCity.Core.Entities;
@@ -13,12 +14,15 @@ namespace HelpYourCity.API.Controllers
     public class UtilsController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly IEmailService _emailService;
         private readonly IStripeService _stripeService;
         private readonly IMapper _mapper;
 
+        public UtilsController(UserManager<IdentityUser> userManager,IEmailService emailService)
         public UtilsController(UserManager<IdentityUser> userManager, IStripeService stripeService, IMapper mapper)
         {
             _userManager = userManager;
+            _emailService = emailService;
             _stripeService = stripeService;
             _mapper = mapper;
         }
@@ -37,6 +41,13 @@ namespace HelpYourCity.API.Controllers
             if (result.Succeeded)
                 return Ok();
             return BadRequest(result.Errors);
+        }
+
+        [HttpPost("EmailService")]
+        public async Task<IActionResult> SendEmail(string email,string subject,string htmlMessage)
+        {
+           await _emailService.SendEmailAsync(email, subject, htmlMessage);
+           return Ok();
         }
 
         [HttpPost]

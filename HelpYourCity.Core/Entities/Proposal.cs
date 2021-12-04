@@ -11,7 +11,8 @@ namespace HelpYourCity.Core.Entities
 
         [Required] public string FirstName { get; set; }
         [Required] public string LastName { get; set; }
-        public string CompanyName { get; set; }
+        
+        public string? CompanyName { get; set; }
 
         public Goal Goal { get; set; }
 

@@ -157,7 +157,6 @@ namespace HelpYourCity.API.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CompanyName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedAtTime")
@@ -211,6 +210,10 @@ namespace HelpYourCity.API.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("OrginalName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Path")
                         .IsRequired()
                         .HasColumnType("longtext");
 
