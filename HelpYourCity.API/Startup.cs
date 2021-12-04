@@ -49,6 +49,7 @@ namespace HelpYourCity.API
             services.AddPersistenceServices(Configuration.GetConnectionString("HelpYourCity"));
             
             services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
         }
