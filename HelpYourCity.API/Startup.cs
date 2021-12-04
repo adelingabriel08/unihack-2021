@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Stripe;
 
 namespace HelpYourCity.API
 {
@@ -31,6 +32,7 @@ namespace HelpYourCity.API
             services.AddRazorPages();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            services.AddAutoMapper(typeof(MapperProfile));
             services.AddPersistenceServices(Configuration.GetConnectionString("HelpYourCity"));
             services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
@@ -43,6 +45,10 @@ namespace HelpYourCity.API
                 }
             );
             services.AddPersistenceServices(Configuration.GetConnectionString("HelpYourCity"));
+            
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +59,7 @@ namespace HelpYourCity.API
                 app.UseDeveloperExceptionPage();
             }
 
+            StripeConfiguration.ApiKey = Configuration["Stripe:SecretKey"];
             app.UseSwagger();
             app.UseSwaggerUI();
             // for wwwroot for css and js stuff
