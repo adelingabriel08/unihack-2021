@@ -34,6 +34,8 @@ export class GoalProposalPageComponent {
   async submit(): Promise<void> {
     const payload = {...this.personalInfoForm.form.value, ...{goal: this.goalForm.form.value}};
     try {
+      this.goalForm.form.reset();
+      this.personalInfoForm.form.reset();
       await this._proposalService.addProposal(payload).toPromise();
       this._snack.open('Goal proposal was successful!', 'Close');
       this._router.navigate(['goals']).then();

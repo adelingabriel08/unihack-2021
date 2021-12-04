@@ -1,0 +1,45 @@
+<div class="dialog-container">
+  <form [formGroup]="form">
+
+    <ng-container *ngIf="!form.controls['firstName'].untouched && form.controls['firstName'].errors">
+      <mat-error *ngIf="form.controls['firstName'].errors['required']">
+        This field is required!
+      </mat-error>
+    </ng-container>
+    <mat-form-field appearance="fill">
+      <input formControlName="firstName" matInput placeholder="First Name">
+    </mat-form-field>
+
+    <ng-container *ngIf="!form.controls['lastName'].untouched && form.controls['lastName'].errors">
+      <mat-error *ngIf="form.controls['lastName'].errors['required']">
+        This field is required!
+      </mat-error>
+    </ng-container>
+    <mat-form-field appearance="fill">
+      <input formControlName="lastName" matInput placeholder="Last Name">
+    </mat-form-field>
+
+    <ng-container *ngIf="!form.controls['email'].untouched && form.controls['email'].errors">
+      <mat-error *ngIf="form.controls['email'].errors['required']">
+        This field is required!
+      </mat-error>
+      <mat-error *ngIf="!form.controls['email'].errors['required'] && form.controls['email'].errors['email']">
+        This is not a valid email!
+      </mat-error>
+    </ng-container>
+    <mat-form-field appearance="fill">
+      <input formControlName="email" type="email" matInput placeholder="Email">
+    </mat-form-field>
+
+    <ng-container *ngIf="!form.controls['phone'].untouched && form.controls['phone'].errors">
+      <mat-error *ngIf="form.controls['phone'].errors['required']">
+        This field is required!
+      </mat-error>
+    </ng-container>
+    <mat-form-field appearance="fill">
+      <input formControlName="phone" matInput placeholder="Last Name">
+    </mat-form-field>
+
+  </form>
+  <app-button label="Send application!" (action)="submit()" [disabled]="!form.valid"></app-button>
+</div>

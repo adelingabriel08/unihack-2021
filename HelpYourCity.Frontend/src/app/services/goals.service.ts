@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IGoal} from '../models/goal.model';
 import {IVolunteeringEvent} from '../models/volunteering-event.model';
+import {IVolunteer} from '../models/volunteer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,10 @@ export class GoalsService {
   getVolunteeringEvents(id: number): Observable<IVolunteeringEvent[]> {
     const url = this.baseUrl + `/${id}/events`;
     return this._http.get<IVolunteeringEvent[]>(url);
+  }
+
+  volunteer(volunteer: IVolunteer): Observable<IVolunteer> {
+    const url = this.baseUrl + '/volunteer';
+    return this._http.post<IVolunteer>(url, volunteer);
   }
 }

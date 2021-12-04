@@ -1,4 +1,5 @@
 export interface IVolunteeringEvent {
+  id: number;
   startTime: Date;
   endTime: Date;
   location: string;

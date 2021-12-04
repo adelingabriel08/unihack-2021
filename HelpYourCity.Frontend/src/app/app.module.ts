@@ -11,10 +11,13 @@ import { ContributionComponent } from './pages/goal-details-page/contribution/co
 import {SharedModule} from './shared/shared.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { GoalEventsPageComponent } from './pages/goal-events-page/goal-events-page.component';
 import { EventCardComponent } from './pages/goal-events-page/event-card/event-card.component';
+import { EventApplicationFormComponent } from './pages/goal-events-page/event-application-form/event-application-form.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -23,19 +26,23 @@ import { EventCardComponent } from './pages/goal-events-page/event-card/event-ca
     ContributionComponent,
     GoalEventsPageComponent,
     EventCardComponent,
+    EventApplicationFormComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatCardModule,
-        SharedModule,
-        MatFormFieldModule,
-        MatInputModule,
-        FormsModule,
-        MatProgressSpinnerModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatCardModule,
+    SharedModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
