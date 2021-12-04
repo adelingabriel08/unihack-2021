@@ -36,6 +36,23 @@ namespace HelpYourCity.Persistence.Services
             return goals;
         }
 
+        public async Task<List<Goal>> GetAllGoalsWithNumbers()
+        {
+            var goals = await _dbContext.Goals.ToListAsync();
+            foreach (var item in goals)
+            {
+                item.NumberOfDonations = await _dbContext.Donors
+                    .Where(p => p.GoalId == item.Id)
+                    .Where(p=>p.Goal.IsPublished)
+                    .Where(p => p.PaymentId != null && p.PaymentId > 0)
+                    .OrderByDescending(p => p.CreatedAtTime)
+                    .SumAsync(p => p.Quantity);
+            }
+
+            return goals;
+
+        }
+
         public async Task<Goal> GetGoalBySlug(string slug)
         {
             var item = await _dbContext.Goals.Where(p => p.IsPublished == true)

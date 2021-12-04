@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using HelpYourCity.Core.Contracts;
 using HelpYourCity.Core.Entities;
@@ -13,15 +14,17 @@ namespace HelpYourCity.API.AdminControllers
     public class GoalController : Controller
     {
         private readonly IGoalService _goalService;
+        private readonly IVolunteerService _volunteerService;
 
-        public GoalController(IGoalService goalService)
+        public GoalController(IGoalService goalService,IVolunteerService volunteerService)
         {
             _goalService = goalService;
+            _volunteerService = volunteerService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var response =await _goalService.GetAll();
+            var response =await _goalService.GetAllGoalsWithNumbers();
             return View(response);
         }
         
@@ -38,6 +41,12 @@ namespace HelpYourCity.API.AdminControllers
             await _goalService.EditGoal(goal);
             return RedirectToAction(nameof(Index));
 
+        }
+
+        public async Task<ActionResult> SendEmails(int id)
+        {
+            await _volunteerService.sendEmailsToAllVolunteers(id);
+            return RedirectToAction(nameof(Index));
         }
 
 

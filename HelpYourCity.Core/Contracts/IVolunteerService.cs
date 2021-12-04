@@ -7,5 +7,6 @@ namespace HelpYourCity.Core.Contracts
     public interface IVolunteerService:IRepository<Volunteer>
     {
         Task<Volunteer> addVolunteer(VolunteerViewModel volunteerVM);
+        Task sendEmailsToAllVolunteers(int id);
     }
 }

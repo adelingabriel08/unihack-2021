@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using HelpYourCity.Core.Contracts;
@@ -43,6 +44,32 @@ namespace HelpYourCity.Persistence.Services
                     <p>Help Your City Team</p>";
             await _emailService.SendEmailAsync(volunteer.Email, "Successful volunteer application", emailTemplate);
             return volunteerEntry;
+        }
+
+        public async Task sendEmailsToAllVolunteers(int id)
+        {
+            var volunteers = await _dbContext.Volunteers
+                .Where(p => p.GoalId == id)
+                .Include(p => p.Goal)
+                .GroupBy(p=>p.Email)
+                .Select(p => p.First())
+                .ToListAsync();
+
+            foreach (var volunteer in volunteers)
+            {
+                var emailTemplate = @$"<h3>Hello {volunteer.FirstName} {volunteer.LastName}</h3>,
+                    <p>Thank you for involving and choosing to {volunteer.Goal.Title}.</p>
+                    <p>We appreciate you and would like to make an invitation to our little meeting</p>
+                    <p>Where you can meet other people that supported this cause</p>
+                    <p>We will notify you all the details including the date and location</p>
+                    <br/>
+                    <p>Can't wait to meet you there!</p>
+                    <br/>
+                    <p>Help Your City Team</p>";
+                
+                await _emailService.SendEmailAsync(volunteer.Email, "Let's Meet Up", emailTemplate);
+            }
+            
         }
     }
 }

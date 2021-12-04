@@ -57,6 +57,11 @@
                             @Html.DisplayFor(modelItem => item.IsPublished)</td>
             <td>
                 <a asp-action="Edit" asp-route-goalId="@item.Id">Edit</a>
+                <p> @Html.DisplayFor(modelItem => item.NumberOfDonations)</p>
+                @if (item.NumberOfDonations <= item.Target && item.Target!=0)
+                {
+                    <button class="btn btn-primary" asp-action="SendEmails" asp-route-id="@item.Id">Send Email To Volunteers</button>
+                }
             </td>
         </tr>
     }
