@@ -4,5 +4,6 @@
         [disabled]="disabled"
         [style.cursor]="!disabled ? 'pointer' : 'auto'"
         class="normal">
-  <span class="small-text">{{label}}</span>
+  <span *ngIf="!loading" class="small-text">{{label}}</span>
+  <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 </button>

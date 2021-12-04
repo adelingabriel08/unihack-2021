@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {GoalDetailsPageComponent} from './pages/goal-details-page/goal-details-page.component';
 import {GoalEventsPageComponent} from './pages/goal-events-page/goal-events-page.component';
-import {PaymentPageComponent} from "./pages/payment-page/payment-page.component";
 
 const routes: Routes = [
   {
@@ -14,16 +13,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/goal-proposal-page/goal-proposal-page.module').then(m => m.GoalProposalPageModule)
   },
   {
+    path: 'payment',
+    loadChildren: () => import('./pages/payment-pages/payment-pages.module').then(m => m.PaymentPagesModule)
+  },
+  {
     path: 'goal/:slug',
     component: GoalDetailsPageComponent
   },
   {
     path: 'goal/events/:slug',
     component: GoalEventsPageComponent
-  },
-  {
-    path: 'payment',
-    component: PaymentPageComponent
   },
   {
     path: '**',

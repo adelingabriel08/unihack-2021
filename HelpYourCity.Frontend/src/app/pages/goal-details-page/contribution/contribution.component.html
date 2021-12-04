@@ -27,5 +27,6 @@
   <ng-container *ngIf="contributionType === contributionTypes.VOLUNTEERING">
     <p class="large-text">I want to volunteer!</p>
   </ng-container>
-  <app-button (action)="handleNext(goal)" [hoverEnabled]="true" [label]="'Next'" class="next-button"></app-button>
+  <app-button [disabled]="isDisabled()" (action)="handleNext(goal)"
+              [hoverEnabled]="true" [label]="'Next'" class="next-button"></app-button>
 </div>

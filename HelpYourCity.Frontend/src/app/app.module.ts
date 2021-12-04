@@ -11,7 +11,6 @@ import {ContributionComponent} from './pages/goal-details-page/contribution/cont
 import {SharedModule} from './shared/shared.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -22,6 +21,8 @@ import {
 } from './pages/goal-events-page/event-application-form/event-application-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { PaymentFormComponent } from './pages/goal-details-page/payment-form/payment-form.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     GoalEventsPageComponent,
     EventCardComponent,
     EventApplicationFormComponent,
-    PaymentPageComponent
+    PaymentFormComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +48,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSnackBarModule,
-    ReactiveFormsModule
-    MatButtonModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
