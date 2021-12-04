@@ -8,7 +8,7 @@
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string CompanyName { get; set; }
+        public string? CompanyName { get; set; }
 
         public GoalViewModel Goal { get; set; }
     }
