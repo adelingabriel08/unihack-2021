@@ -17,6 +17,9 @@ namespace HelpYourCity.Persistence
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IGoalService,GoalService>();
             services.AddScoped<IProposalService, ProposalService>();
+            services.AddScoped<IEventsService,EventsService>();
+            services.AddScoped<IDonorService,DonorService>();
+            
             return services;
         }
     }
