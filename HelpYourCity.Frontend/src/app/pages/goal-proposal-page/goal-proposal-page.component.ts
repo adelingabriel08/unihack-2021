@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {SelectedFormTypes, SelectedFromType} from '../../types';
 import {PersonalInformationFormComponent} from './personal-information-form/personal-information-form.component';
 import {GoalFormComponent} from './goal-form/goal-form.component';
@@ -25,7 +25,8 @@ export class GoalProposalPageComponent {
     private readonly _proposalService: ProposalService,
     private readonly _snack: MatSnackBar,
     private readonly _router: Router
-  ) { }
+  ) {
+  }
 
   switchForm(formType: SelectedFromType): void {
     this.formType = formType;

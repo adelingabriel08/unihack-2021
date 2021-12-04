@@ -5,8 +5,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   mat-card {
     max-width: 80%;
+
     mat-card-content {
       display: flex;
       flex-direction: column;
@@ -14,13 +16,16 @@
       align-items: center;
       height: 85%;
       text-align: center;
+
       .buttons-container {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
         app-button {
           margin: 0 7.5px;
+
           ::ng-deep button {
             width: 200px;
             @media screen and (max-width: 550px) {
@@ -31,6 +36,7 @@
             }
           }
         }
+
         app-button:first-child {
           ::ng-deep button {
             padding: 10px;

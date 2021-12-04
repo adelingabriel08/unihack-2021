@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {IVolunteeringEvent} from '../../../models/volunteering-event.model';
 import {EventApplicationFormComponent} from '../event-application-form/event-application-form.component';
 import {MatDialog} from '@angular/material/dialog';

@@ -4,28 +4,28 @@
     <div class="column">
       <div class="row">
         <app-button (action)="setValue(goal.pricePerUnit * 5)"
-                    [selected]="value === goal.pricePerUnit * 5"
-                    [label]="(goal.pricePerUnit * 5).toString()"></app-button>
+                    [label]="(goal.pricePerUnit * 5).toString()"
+                    [selected]="value === goal.pricePerUnit * 5"></app-button>
         <app-button (action)="setValue(goal.pricePerUnit * 10)"
-                    [selected]="value === goal.pricePerUnit * 10"
-                    [label]="(goal.pricePerUnit * 10).toString()"></app-button>
+                    [label]="(goal.pricePerUnit * 10).toString()"
+                    [selected]="value === goal.pricePerUnit * 10"></app-button>
       </div>
       <div class="row">
         <app-button (action)="setValue(goal.pricePerUnit * 25)"
-                    [selected]="value === goal.pricePerUnit * 25"
-                    [label]="(goal.pricePerUnit * 25).toString()"></app-button>
+                    [label]="(goal.pricePerUnit * 25).toString()"
+                    [selected]="value === goal.pricePerUnit * 25"></app-button>
         <app-button (action)="setValue(goal.pricePerUnit * 50)"
-                    [selected]="value === goal.pricePerUnit * 50"
-                    [label]="(goal.pricePerUnit * 50).toString()"></app-button>
+                    [label]="(goal.pricePerUnit * 50).toString()"
+                    [selected]="value === goal.pricePerUnit * 50"></app-button>
       </div>
       <mat-form-field>
         <mat-label>Or choose a custom amount...</mat-label>
-        <input matInput [(ngModel)]="value" type="number">
+        <input [(ngModel)]="value" matInput type="number">
       </mat-form-field>
     </div>
   </ng-container>
   <ng-container *ngIf="contributionType === contributionTypes.VOLUNTEERING">
     <p class="large-text">I want to volunteer!</p>
   </ng-container>
-  <app-button (action)="handleNext(goal)" class="next-button" [label]="'Next'" [hoverEnabled]="true"></app-button>
+  <app-button (action)="handleNext(goal)" [hoverEnabled]="true" [label]="'Next'" class="next-button"></app-button>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {IGoal} from '../../../models/goal.model';
 import {IVolunteeringEvent} from '../../../models/volunteering-event.model';
@@ -25,7 +25,8 @@ export class EventApplicationFormComponent {
     private readonly _snack: MatSnackBar,
     private readonly _formBuilder: FormBuilder,
     private readonly _goalsService: GoalsService
-  ) { }
+  ) {
+  }
 
   async submit(): Promise<void> {
     const volunteer: IVolunteer = {...this.form.value, eventId: this.data.event.id, goalId: this.data.goal.id};

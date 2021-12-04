@@ -28,7 +28,7 @@
       </mat-error>
     </ng-container>
     <mat-form-field appearance="fill">
-      <input formControlName="email" type="email" matInput placeholder="Email">
+      <input formControlName="email" matInput placeholder="Email" type="email">
     </mat-form-field>
 
     <ng-container *ngIf="!form.controls['phone'].untouched && form.controls['phone'].errors">
@@ -41,5 +41,5 @@
     </mat-form-field>
 
   </form>
-  <app-button label="Send application!" (action)="submit()" [disabled]="!form.valid"></app-button>
+  <app-button (action)="submit()" [disabled]="!form.valid" label="Send application!"></app-button>
 </div>

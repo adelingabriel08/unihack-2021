@@ -16,7 +16,8 @@ export class ContributionComponent {
 
   constructor(
     private _router: Router
-  ) { }
+  ) {
+  }
 
   setValue(selectedValue: number): void {
     this.value = selectedValue;

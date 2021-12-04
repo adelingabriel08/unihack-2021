@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProposalService} from '../../../services/proposal.service';
 import {IFileResponse} from '../../../models/file-response.model';
@@ -23,12 +23,13 @@ export class GoalFormComponent {
   constructor(
     private readonly _formBuilder: FormBuilder,
     private readonly _proposalService: ProposalService
-  ) { }
+  ) {
+  }
 
   async fileChange(e: any): Promise<void> {
     const {files} = e.target;
     if (files.length !== 1) {
-        return;
+      return;
     }
     const file: File = files[0];
     this.responseFile = await this._proposalService.uploadFile(file).toPromise();

@@ -8,9 +8,11 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(1, 49, 64, 0.16);
   padding: 10px 40px;
+
   span {
     color: black;
   }
+
   @media screen and (max-width: 550px) {
     padding: 10px 20px;
   }
@@ -19,6 +21,7 @@
 .selected {
   background-color: #163C59;
   border: none;
+
   span {
     color: white;
   }
@@ -27,6 +30,7 @@
 .disabled {
   background-color: #F6F6F6;
   border: none;
+
   span {
     color: lightgray;
   }

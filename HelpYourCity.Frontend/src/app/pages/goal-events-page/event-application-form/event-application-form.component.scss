@@ -8,9 +8,11 @@
 form {
   width: 300px;
   margin: 10px 0;
+
   mat-form-field {
     width: 100%;
   }
+
   @media screen and (max-width: 550px) {
     width: 230px;
   }

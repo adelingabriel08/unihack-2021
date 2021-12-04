@@ -9,7 +9,7 @@
     </mat-error>
   </ng-container>
   <mat-form-field appearance="fill">
-    <input formControlName="email" type="email" matInput placeholder="Email">
+    <input formControlName="email" matInput placeholder="Email" type="email">
   </mat-form-field>
 
   <ng-container *ngIf="!form.controls['phone'].untouched && form.controls['phone'].errors">

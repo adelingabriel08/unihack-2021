@@ -1,8 +1,8 @@
-<button class="normal"
-        [class.selected]="selected"
+<button (click)="action.emit()"
         [class.disabled]="disabled"
+        [class.selected]="selected"
         [disabled]="disabled"
         [style.cursor]="!disabled ? 'pointer' : 'auto'"
-        (click)="action.emit()">
+        class="normal">
   <span class="small-text">{{label}}</span>
 </button>

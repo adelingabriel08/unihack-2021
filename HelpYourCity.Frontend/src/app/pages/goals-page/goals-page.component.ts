@@ -14,7 +14,8 @@ export class GoalsPageComponent implements OnInit {
   constructor(
     private readonly _goalsService: GoalsService,
     private readonly _router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this._goalsService.getAll().subscribe(res => {

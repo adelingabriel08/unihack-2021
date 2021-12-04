@@ -1,13 +1,14 @@
 <div class="page-container">
   <ng-container *ngIf="goal">
     <div class="goal-detail-card">
-      <app-progress-bar [current]="goal.donors" [goal]="goal.target" [percent]="(goal.donors * 100) / goal.target"></app-progress-bar>
+      <app-progress-bar [current]="goal.donors" [goal]="goal.target"
+                        [percent]="(goal.donors * 100) / goal.target"></app-progress-bar>
       <div class="content-container">
         <p class="large-text">{{goal.description}}</p>
         <div>
           <div class="contribution-cards-container">
-            <app-contribution [goal]="goal" [contributionType]="contributionTypes.DONATION"></app-contribution>
-            <app-contribution [goal]="goal" [contributionType]="contributionTypes.VOLUNTEERING"></app-contribution>
+            <app-contribution [contributionType]="contributionTypes.DONATION" [goal]="goal"></app-contribution>
+            <app-contribution [contributionType]="contributionTypes.VOLUNTEERING" [goal]="goal"></app-contribution>
           </div>
         </div>
       </div>

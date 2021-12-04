@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { GoalsPageComponent } from './goals-page.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {GoalsPageComponent} from './goals-page.component';
 import {RouterModule, Routes} from '@angular/router';
-import { GoalCardComponent } from './goal-card/goal-card.component';
+import {GoalCardComponent} from './goal-card/goal-card.component';
 import {MatCardModule} from '@angular/material/card';
 import {SharedModule} from '../../shared/shared.module';
 
@@ -25,4 +25,5 @@ const routes: Routes = [
     SharedModule
   ]
 })
-export class GoalsPageModule { }
+export class GoalsPageModule {
+}

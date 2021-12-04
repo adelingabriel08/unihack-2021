@@ -33,7 +33,7 @@
     </mat-error>
   </ng-container>
   <mat-form-field appearance="fill">
-    <input formControlName="target" matInput type="number" placeholder="Goal Target">
+    <input formControlName="target" matInput placeholder="Goal Target" type="number">
   </mat-form-field>
 
   <ng-container *ngIf="!form.controls['pricePerUnit'].untouched && form.controls['pricePerUnit'].errors">
@@ -42,7 +42,7 @@
     </mat-error>
   </ng-container>
   <mat-form-field appearance="fill">
-    <input formControlName="pricePerUnit" matInput type="number" placeholder="Price per Unit">
+    <input formControlName="pricePerUnit" matInput placeholder="Price per Unit" type="number">
   </mat-form-field>
 
   <ng-container *ngIf="!form.controls['goalItemName'].untouched && form.controls['goalItemName'].errors">
@@ -55,8 +55,8 @@
   </mat-form-field>
 
   <div class="upload-container">
-    <input [hidden]="true" #fileInput type="file" (change)="fileChange($event)">
-    <app-button label="Upload image" [hoverEnabled]="true" (action)="fileInput.click()"></app-button>
+    <input #fileInput (change)="fileChange($event)" [hidden]="true" type="file">
+    <app-button (action)="fileInput.click()" [hoverEnabled]="true" label="Upload image"></app-button>
     <p class="medium-text">
       <a *ngIf="responseFile" [href]="responseFile.path" target="_blank">{{responseFile.orginalName}}</a>
       <span *ngIf="responseFile === undefined">Nothing uploaded yet!</span>

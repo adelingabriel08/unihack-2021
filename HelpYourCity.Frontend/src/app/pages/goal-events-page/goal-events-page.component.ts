@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {GoalsService} from '../../services/goals.service';
 import {IGoal} from '../../models/goal.model';
 import {IVolunteeringEvent} from '../../models/volunteering-event.model';
-import {MatDialog} from '@angular/material/dialog';
-import {EventApplicationFormComponent} from './event-application-form/event-application-form.component';
 
 @Component({
   selector: 'app-goal-events-page',
@@ -18,7 +16,8 @@ export class GoalEventsPageComponent implements OnInit {
   constructor(
     private readonly _route: ActivatedRoute,
     private readonly _goalsService: GoalsService,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     const slug = this._route.snapshot.paramMap.get('slug');
