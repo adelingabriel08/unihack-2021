@@ -20,6 +20,7 @@ namespace HelpYourCity.Persistence
             services.AddScoped<IEventsService,EventsService>();
             services.AddScoped<IDonorService,DonorService>();
             
+            services.AddScoped<IStripeService, StripeService>();
             return services;
         }
     }
