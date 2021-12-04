@@ -21,7 +21,7 @@ namespace HelpYourCity.Persistence.Services
 
         public async Task<List<VolunteeringEvent>> getAllEventsForAGoal(int id)
         {
-            var events =await _dbContext.VolunteeringEvents.Where(p => p.GoalId == id).ToListAsync();
+            var events =await _dbContext.VolunteeringEvents.Where(p => p.GoalId == id).OrderByDescending(p=>p.StartTime).ToListAsync();
             return events;
         }
     }
