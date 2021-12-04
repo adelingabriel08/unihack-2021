@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use 'src/assets/styles/variables';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Montserrat', Roboto, "Helvetica Neue", sans-serif; background-color: variables.$background; }
+
+* {
+  font-family: 'Montserrat', Roboto, "Helvetica Neue", sans-serif;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat-bold';
+  src: url('./assets/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+}
+
+mat-card-title {
+  font-family: 'Montserrat-bold', Roboto, "Helvetica Neue", sans-serif;
+}
+
+.heading {
+  font-family: 'Montserrat-bold', Roboto, "Helvetica Neue", sans-serif;
+  font-size: 45px;
+  @media screen and (max-width: 1200px) {
+    font-size: 38px;
+  }
+  @media screen and (max-width: 750px) {
+    font-size: 30px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 25px;
+  }
+}
+
+.large-text {
+  font-size: 24px;
+  @media screen and (max-width: 1200px) {
+    font-size: 20px;
+  }
+  @media screen and (max-width: 750px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 14px;
+  }
+}
+
+.medium-text {
+  font-size: 20px;
+  @media screen and (max-width: 1200px) {
+    font-size: 17px;
+  }
+  @media screen and (max-width: 750px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 12px;
+  }
+}
+
+.small-text {
+  font-size: 18px;
+  @media screen and (max-width: 1200px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 750px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 10px;
+  }
+}

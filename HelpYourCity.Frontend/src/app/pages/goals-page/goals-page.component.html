@@ -1,0 +1,8 @@
+<ng-container *ngIf="goals">
+  <div class="page-container">
+    <p class="heading">Titlu</p>
+    <div class="cards-container">
+      <app-goal-card (click)="goToDetails(goal)" *ngFor="let goal of goals" [goal]="goal"></app-goal-card>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,31 @@
+<div class="contribution-card">
+  <p class="medium-text">{{goal.pricePerUnit + ' / ' + goal.goalItemName}}</p>
+  <ng-container *ngIf="contributionType === contributionTypes.DONATION">
+    <div class="column">
+      <div class="row">
+        <app-button (action)="setValue(goal.pricePerUnit * 5)"
+                    [selected]="value === goal.pricePerUnit * 5"
+                    [label]="(goal.pricePerUnit * 5).toString()"></app-button>
+        <app-button (action)="setValue(goal.pricePerUnit * 10)"
+                    [selected]="value === goal.pricePerUnit * 10"
+                    [label]="(goal.pricePerUnit * 10).toString()"></app-button>
+      </div>
+      <div class="row">
+        <app-button (action)="setValue(goal.pricePerUnit * 25)"
+                    [selected]="value === goal.pricePerUnit * 25"
+                    [label]="(goal.pricePerUnit * 25).toString()"></app-button>
+        <app-button (action)="setValue(goal.pricePerUnit * 50)"
+                    [selected]="value === goal.pricePerUnit * 50"
+                    [label]="(goal.pricePerUnit * 50).toString()"></app-button>
+      </div>
+      <mat-form-field>
+        <mat-label>Or choose a custom amount...</mat-label>
+        <input matInput [(ngModel)]="value" type="number">
+      </mat-form-field>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="contributionType === contributionTypes.VOLUNTEERING">
+    <p class="large-text">I want to volunteer!</p>
+  </ng-container>
+  <app-button class="next-button" [label]="'Next'" [hoverEnabled]="true"></app-button>
+</div>

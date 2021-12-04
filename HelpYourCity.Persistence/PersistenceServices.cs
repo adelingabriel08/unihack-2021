@@ -24,6 +24,7 @@ namespace HelpYourCity.Persistence
             services.AddScoped<IEmailService,EmailService>();
             services.AddScoped<IVolunteerService,VolunteerService>();
             
+            services.AddScoped<IStripeService, StripeService>();
             return services;
         }
     }

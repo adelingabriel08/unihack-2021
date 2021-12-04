@@ -50,7 +50,7 @@ namespace HelpYourCity.API.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("PaymentId")
+                    b.Property<int?>("PaymentId")
                         .HasColumnType("int");
 
                     b.Property<uint>("Quantity")
@@ -99,6 +99,10 @@ namespace HelpYourCity.API.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("StripePriceCorrelationId")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -506,9 +510,7 @@ namespace HelpYourCity.API.Migrations
 
                     b.HasOne("HelpYourCity.Core.Entities.Payment", "Payment")
                         .WithMany()
-                        .HasForeignKey("PaymentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PaymentId");
 
                     b.Navigation("Goal");
 

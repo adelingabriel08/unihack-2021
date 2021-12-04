@@ -1,0 +1,26 @@
+@use 'src/assets/styles/variables';
+
+.normal {
+  cursor: pointer;
+  min-width: 115px;
+  background-color: lightgray;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(1, 49, 64, 0.16);
+  padding: 10px 40px;
+  span {
+    color: black;
+  }
+}
+
+.selected {
+  background-color: #163C59;
+  border: none;
+  span {
+    color: white;
+  }
+}
+
+.hover:hover {
+  background-color: variables.$green;
+}
