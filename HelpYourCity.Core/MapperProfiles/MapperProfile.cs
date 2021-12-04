@@ -12,6 +12,8 @@ namespace HelpYourCity.Core.MapperProfiles
             CreateMap<Goal, GoalViewModel>();
             CreateMap<Proposal, ProposalViewModel>();
             CreateMap<ProposalViewModel, Proposal>();
+            CreateMap<Volunteer, VolunteerViewModel>();
+            CreateMap<VolunteerViewModel, Volunteer>();
         }
     }
 }
