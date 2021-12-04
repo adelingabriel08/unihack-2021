@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -20,17 +21,20 @@ namespace HelpYourCity.Persistence.Services
         private readonly IRepository<Donor> _donorRepository;
         private readonly IRepository<Payment> _paymentRepository;
         private readonly ApplicationDbContext _dbContext;
+        private readonly IEmailService _emailService;
 
         public StripeService(
             IConfiguration configuration,
             IRepository<Donor> donorRepository,
             IRepository<Payment> paymentRepository,
-            ApplicationDbContext dbContext)
+            ApplicationDbContext dbContext,
+            IEmailService emailService)
         {
             _configuration = configuration;
             _donorRepository = donorRepository;
             _paymentRepository = paymentRepository;
             _dbContext = dbContext;
+            _emailService = emailService;
         }
 
         public async Task<string> AddProductToStripe(Goal goal)
@@ -110,10 +114,22 @@ namespace HelpYourCity.Persistence.Services
             };
             var paymentEntity = await _paymentRepository.AddOne(payment);
 
-            var donor = await _dbContext.Donors.FirstOrDefaultAsync(p => p.Email == payment.Email);
+            var donor = await _dbContext.Donors.Include(d => d.Goal)
+                .OrderByDescending(p => p.Id)
+                .FirstOrDefaultAsync(p => p.Email == payment.Email);
 
             donor.PaymentId = paymentEntity.Id;
             await _dbContext.SaveChangesAsync();
+
+            var emailTemplate = @$"<h3>Hello <b>{donor.FirstName} {donor.LastName}</b>,</h3> 
+                <p>Your payment for {donor.Goal.Title} goal was received!</p>
+                <br/>
+                <br/>
+                <p>Thank you,</p>
+                <p>Help Your City Team</p>";
+
+            await _emailService.SendEmailAsync(donor.Email, "Payment successful", emailTemplate);
+
         }
     }
 }
