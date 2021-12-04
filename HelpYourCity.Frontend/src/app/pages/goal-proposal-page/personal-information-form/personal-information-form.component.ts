@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -8,11 +8,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class PersonalInformationFormComponent {
   form: FormGroup = this._formBuilder.group({
-    email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.required]],
-    firstName: ['', [Validators.required]],
-    lastName: ['', [Validators.required]],
-    companyName: [''],
+    email: [null, [Validators.required, Validators.email]],
+    phone: [null, [Validators.required]],
+    firstName: [null, [Validators.required]],
+    lastName: [null, [Validators.required]],
+    companyName: [null],
   });
 
   constructor(

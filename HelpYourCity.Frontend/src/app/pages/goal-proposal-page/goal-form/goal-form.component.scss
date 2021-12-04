@@ -1,0 +1,17 @@
+form {
+  width: 300px;
+  margin: 30px 0;
+  mat-form-field {
+    width: 100%;
+  }
+  .upload-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    app-button, p {
+      margin: 0 10px;
+    }
+  }
+}

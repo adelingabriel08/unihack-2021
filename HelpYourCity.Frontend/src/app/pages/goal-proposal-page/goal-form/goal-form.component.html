@@ -1,0 +1,65 @@
+<form [formGroup]="form">
+
+  <ng-container *ngIf="!form.controls['title'].untouched && form.controls['title'].errors">
+    <mat-error *ngIf="form.controls['title'].errors['required']">
+      This field is required!
+    </mat-error>
+  </ng-container>
+  <mat-form-field appearance="fill">
+    <input formControlName="title" matInput placeholder="Title">
+  </mat-form-field>
+
+  <ng-container *ngIf="!form.controls['shortDescription'].untouched && form.controls['shortDescription'].errors">
+    <mat-error *ngIf="form.controls['shortDescription'].errors['required']">
+      This field is required!
+    </mat-error>
+  </ng-container>
+  <mat-form-field appearance="fill">
+    <textarea formControlName="shortDescription" matInput placeholder="Short Description"></textarea>
+  </mat-form-field>
+
+  <ng-container *ngIf="!form.controls['description'].untouched && form.controls['description'].errors">
+    <mat-error *ngIf="form.controls['description'].errors['required']">
+      This field is required!
+    </mat-error>
+  </ng-container>
+  <mat-form-field appearance="fill">
+    <textarea formControlName="description" matInput placeholder="Description"></textarea>
+  </mat-form-field>
+
+  <ng-container *ngIf="!form.controls['target'].untouched && form.controls['target'].errors">
+    <mat-error *ngIf="form.controls['target'].errors['required']">
+      This field is required!
+    </mat-error>
+  </ng-container>
+  <mat-form-field appearance="fill">
+    <input formControlName="target" matInput placeholder="Goal Target">
+  </mat-form-field>
+
+  <ng-container *ngIf="!form.controls['pricePerUnit'].untouched && form.controls['pricePerUnit'].errors">
+    <mat-error *ngIf="form.controls['pricePerUnit'].errors['required']">
+      This field is required!
+    </mat-error>
+  </ng-container>
+  <mat-form-field appearance="fill">
+    <input formControlName="pricePerUnit" matInput placeholder="Price per Unit">
+  </mat-form-field>
+
+  <ng-container *ngIf="!form.controls['goalItemName'].untouched && form.controls['goalItemName'].errors">
+    <mat-error *ngIf="form.controls['goalItemName'].errors['required']">
+      This field is required!
+    </mat-error>
+  </ng-container>
+  <mat-form-field appearance="fill">
+    <input formControlName="goalItemName" matInput placeholder="Item Name">
+  </mat-form-field>
+
+  <div class="upload-container">
+    <input [hidden]="true" #fileInput type="file" (change)="fileChange($event)">
+    <app-button label="Upload image" [hoverEnabled]="true" (action)="fileInput.click()"></app-button>
+    <p class="medium-text">
+      <a *ngIf="responseFile" [href]="responseFile.path" target="_blank">{{responseFile.orginalName}}</a>
+      <span *ngIf="responseFile === undefined">Nothing uploaded yet!</span>
+    </p>
+  </div>
+</form>
