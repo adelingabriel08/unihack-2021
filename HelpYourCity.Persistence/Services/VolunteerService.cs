@@ -15,7 +15,7 @@ namespace HelpYourCity.Persistence.Services
         private readonly IEmailService _emailService;
         private readonly IMapper _mapper;
 
-        public VolunteerService(ApplicationDbContext dbContext,IMapper , IEmailService emailService) : base(dbContext)
+        public VolunteerService(ApplicationDbContext dbContext,IMapper mapper, IEmailService emailService) : base(dbContext)
         {
             _dbContext = dbContext;
             _emailService = emailService;
