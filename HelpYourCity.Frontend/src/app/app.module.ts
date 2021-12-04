@@ -9,6 +9,9 @@ import { GoalDetailsPageComponent } from './pages/goal-details-page/goal-details
 import {MatCardModule} from '@angular/material/card';
 import { ContributionComponent } from './pages/goal-details-page/contribution/contribution.component';
 import {SharedModule} from './shared/shared.module';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import {SharedModule} from './shared/shared.module';
     BrowserAnimationsModule,
     HttpClientModule,
     MatCardModule,
-    SharedModule
+    SharedModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

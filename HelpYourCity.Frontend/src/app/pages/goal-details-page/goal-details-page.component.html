@@ -1,6 +1,7 @@
 <div class="page-container">
   <div class="goal-detail-card">
-      <div class="content-container">
+    <app-progress-bar [current]="goal.donors" [goal]="goal.target" [percent]="(goal.donors * 100) / goal.target"></app-progress-bar>
+    <div class="content-container">
         <p class="large-text">{{goal.description}}</p>
         <div>
           <div class="contribution-cards-container">

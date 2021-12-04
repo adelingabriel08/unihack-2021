@@ -1,3 +1,5 @@
+@use 'src/assets/styles/variables';
+
 .normal {
   cursor: pointer;
   min-width: 115px;
@@ -17,4 +19,8 @@
   span {
     color: white;
   }
+}
+
+.hover:hover {
+  background-color: variables.$green;
 }

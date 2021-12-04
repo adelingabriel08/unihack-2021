@@ -18,7 +18,14 @@
                     [selected]="value === goal.pricePerUnit * 50"
                     [label]="(goal.pricePerUnit * 50).toString()"></app-button>
       </div>
+      <mat-form-field>
+        <mat-label>Or choose a custom amount...</mat-label>
+        <input matInput [(ngModel)]="value" type="number">
+      </mat-form-field>
     </div>
-
   </ng-container>
+  <ng-container *ngIf="contributionType === contributionTypes.VOLUNTEERING">
+    <p class="large-text">I want to volunteer!</p>
+  </ng-container>
+  <app-button class="next-button" [label]="'Next'" [hoverEnabled]="true"></app-button>
 </div>

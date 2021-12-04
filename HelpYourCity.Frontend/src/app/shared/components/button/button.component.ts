@@ -8,5 +8,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 export class ButtonComponent {
   @Input() selected = false;
   @Input() label: string;
+  @Input() hoverEnabled = false;
   @Output() readonly action = new EventEmitter<any>();
 }

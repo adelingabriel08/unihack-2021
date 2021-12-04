@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/goals-page/goals-page.module').then(m => m.GoalsPageModule)
   },
   {
+    path: 'propose-goal',
+    loadChildren: () => import('./pages/goal-proposal-page/goal-proposal-page.module').then(m => m.GoalProposalPageModule)
+  },
+  {
     path: 'goal/:slug',
     component: GoalDetailsPageComponent
   },

@@ -1,13 +1,23 @@
 .contribution-card {
+  min-height: 220px;
+  width: 280px;
+  border-radius: 8px;
   background-color: #F2F6F7;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  .next-button {
+    margin: 15px 0;
+  }
+  .medium-text {
+    margin-top: 15px;
+  }
 }
 
 .row {
+  margin: 0 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,6 +29,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  mat-form-field {
+    margin-top: 15px;
+  }
 }
 
 app-button {
