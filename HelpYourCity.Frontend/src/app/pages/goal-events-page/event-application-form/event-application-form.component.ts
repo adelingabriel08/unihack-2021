@@ -33,7 +33,7 @@ export class EventApplicationFormComponent {
     try {
       this.form.reset();
       await this._goalsService.volunteer(volunteer).toPromise();
-      this._snack.open('Volunteering application sent successfully!');
+      this._snack.open('Volunteering application sent successfully!', 'Close');
     } catch (err: any) {
       this._snack.open(err.error, 'Close');
     }

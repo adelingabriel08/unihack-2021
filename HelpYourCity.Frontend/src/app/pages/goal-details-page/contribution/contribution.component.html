@@ -3,20 +3,20 @@
   <ng-container *ngIf="contributionType === contributionTypes.DONATION">
     <div class="column">
       <div class="row">
-        <app-button (action)="setValue(goal.pricePerUnit * 5)"
-                    [label]="(goal.pricePerUnit * 5).toString()"
-                    [selected]="value === goal.pricePerUnit * 5"></app-button>
-        <app-button (action)="setValue(goal.pricePerUnit * 10)"
-                    [label]="(goal.pricePerUnit * 10).toString()"
-                    [selected]="value === goal.pricePerUnit * 10"></app-button>
+        <app-button (action)="setValue(5)"
+                    label="5"
+                    [selected]="value === 5"></app-button>
+        <app-button (action)="setValue(10)"
+                    label="10"
+                    [selected]="value === 10"></app-button>
       </div>
       <div class="row">
-        <app-button (action)="setValue(goal.pricePerUnit * 25)"
-                    [label]="(goal.pricePerUnit * 25).toString()"
-                    [selected]="value === goal.pricePerUnit * 25"></app-button>
-        <app-button (action)="setValue(goal.pricePerUnit * 50)"
-                    [label]="(goal.pricePerUnit * 50).toString()"
-                    [selected]="value === goal.pricePerUnit * 50"></app-button>
+        <app-button (action)="setValue(25)"
+                    label="25"
+                    [selected]="value === 25"></app-button>
+        <app-button (action)="setValue(50)"
+                    label="50"
+                    [selected]="value === 50"></app-button>
       </div>
       <mat-form-field>
         <mat-label>Or choose a custom amount...</mat-label>
