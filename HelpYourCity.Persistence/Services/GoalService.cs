@@ -21,7 +21,7 @@ namespace HelpYourCity.Persistence.Services
 
         public async Task<List<Goal>> GetPublishedGoals()
         {
-            var goals = await _dbContext.Goals.Where(p => p.IsPublished == true).ToListAsync();
+            var goals = await _dbContext.Goals.Include(p => p.Image).Where(p => p.IsPublished == true).ToListAsync();
             foreach (var goal in goals)
             {
                 var numberOfDonations = await _dbContext.Donors
