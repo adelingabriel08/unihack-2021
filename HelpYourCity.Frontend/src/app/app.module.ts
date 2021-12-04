@@ -12,12 +12,15 @@ import {SharedModule} from './shared/shared.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
     AppComponent,
     GoalDetailsPageComponent,
-    ContributionComponent
+    ContributionComponent,
+    PaymentPageComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import {FormsModule} from '@angular/forms';
     SharedModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

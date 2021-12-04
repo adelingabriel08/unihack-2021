@@ -1,32 +1,32 @@
-<form [formGroup]="form">
-  <mat-form-field>
-    <input formControlName="email" type="email" matInput placeholder="Email">
-    <mat-error *ngIf="form['email'].errors['required']">
-      This field is required!
-    </mat-error>
-    <mat-error *ngIf="!form['email'].errors['required'] && form['email'].errors['email']">
-      This is not a valid email!
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input formControlName="phone" matInput placeholder="Phone Number">
-    <mat-error *ngIf="form['phone'].errors['required']">
-      This field is required!
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input formControlName="firstName" matInput placeholder="First Name">
-    <mat-error *ngIf="form['firstName'].errors['required']">
-      This field is required!
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input formControlName="lastName" matInput placeholder="Last Name">
-    <mat-error *ngIf="form['lastName'].errors['required']">
-      This field is required!
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input formControlName="companyName" matInput placeholder="Company Name">
-  </mat-form-field>
-</form>
+<!--<form [formGroup]="form">-->
+<!--  <mat-form-field>-->
+<!--    <input formControlName="email" type="email" matInput placeholder="Email">-->
+<!--    <mat-error *ngIf="form['email'].errors['required']">-->
+<!--      This field is required!-->
+<!--    </mat-error>-->
+<!--    <mat-error *ngIf="!form['email'].errors['required'] && form['email'].errors['email']">-->
+<!--      This is not a valid email!-->
+<!--    </mat-error>-->
+<!--  </mat-form-field>-->
+<!--  <mat-form-field>-->
+<!--    <input formControlName="phone" matInput placeholder="Phone Number">-->
+<!--    <mat-error *ngIf="form['phone'].errors['required']">-->
+<!--      This field is required!-->
+<!--    </mat-error>-->
+<!--  </mat-form-field>-->
+<!--  <mat-form-field>-->
+<!--    <input formControlName="firstName" matInput placeholder="First Name">-->
+<!--    <mat-error *ngIf="form['firstName'].errors['required']">-->
+<!--      This field is required!-->
+<!--    </mat-error>-->
+<!--  </mat-form-field>-->
+<!--  <mat-form-field>-->
+<!--    <input formControlName="lastName" matInput placeholder="Last Name">-->
+<!--    <mat-error *ngIf="form['lastName'].errors['required']">-->
+<!--      This field is required!-->
+<!--    </mat-error>-->
+<!--  </mat-form-field>-->
+<!--  <mat-form-field>-->
+<!--    <input formControlName="companyName" matInput placeholder="Company Name">-->
+<!--  </mat-form-field>-->
+<!--</form>-->
