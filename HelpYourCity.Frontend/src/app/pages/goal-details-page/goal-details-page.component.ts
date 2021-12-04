@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GoalsService} from '../../services/goals.service';
 import {ActivatedRoute} from '@angular/router';
 import {IGoal} from '../../models/goal.model';
@@ -16,7 +16,8 @@ export class GoalDetailsPageComponent implements OnInit {
   constructor(
     private readonly _route: ActivatedRoute,
     private readonly _goalsService: GoalsService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     const slug = this._route.snapshot.paramMap.get('slug');
@@ -24,5 +25,4 @@ export class GoalDetailsPageComponent implements OnInit {
       this.goal = res;
     });
   }
-
 }

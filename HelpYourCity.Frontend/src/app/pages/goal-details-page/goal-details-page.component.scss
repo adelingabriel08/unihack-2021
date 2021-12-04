@@ -24,9 +24,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   p {
     width: 40%;
   }
+
   div {
     width: 50%;
     height: 100%;
@@ -35,6 +37,7 @@
     justify-content: flex-start;
     align-items: center;
     margin: 0 10px;
+
     .contribution-cards-container {
       height: 100%;
       display: flex;
@@ -55,6 +58,7 @@
       margin-top: 15px;
       width: 80%;
     }
+
     div {
       .contribution-cards-container {
         app-contribution {
@@ -62,6 +66,7 @@
         }
       }
     }
+
     flex-direction: column;
   }
 }

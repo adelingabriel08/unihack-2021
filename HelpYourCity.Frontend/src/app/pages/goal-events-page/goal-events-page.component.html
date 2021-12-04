@@ -1,0 +1,11 @@
+<div class="page-container">
+  <ng-container *ngIf="volunteeringEvents">
+    <p class="heading">Apply for volunteering events for {{goal.title}}!</p>
+    <div class="cards-container">
+      <app-event-card *ngFor="let event of volunteeringEvents" [event]="event" [goal]="goal"></app-event-card>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!volunteeringEvents">
+    <mat-spinner></mat-spinner>
+  </ng-container>
+</div>

@@ -1,9 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
 @use 'src/assets/styles/variables';
+@use "assets/styles/spinner";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Montserrat', Roboto, "Helvetica Neue", sans-serif; background-color: variables.$background; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', Roboto, "Helvetica Neue", sans-serif;
+  background-color: variables.$background;
+}
 
 * {
   font-family: 'Montserrat', Roboto, "Helvetica Neue", sans-serif;
@@ -64,9 +72,9 @@ mat-card-title {
 }
 
 .small-text {
-  font-size: 18px;
+  font-size: 16px;
   @media screen and (max-width: 1200px) {
-    font-size: 15px;
+    font-size: 14px;
   }
   @media screen and (max-width: 750px) {
     font-size: 12px;
@@ -74,4 +82,11 @@ mat-card-title {
   @media screen and (max-width: 450px) {
     font-size: 10px;
   }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

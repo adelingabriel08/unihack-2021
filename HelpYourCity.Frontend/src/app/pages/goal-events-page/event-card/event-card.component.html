@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <p>From {{event.startTime | date : 'short'}}</p>
+      <p>Until {{event.endTime | date: 'short'}}</p>
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{event.location}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="medium-text">{{event.details}}</p>
+    <app-button (action)="openDialog()" label="Apply!"></app-button>
+  </mat-card-content>
+  <mat-card-footer>
+    Useful skills: {{event.skills}}
+  </mat-card-footer>
+</mat-card>

@@ -3,7 +3,23 @@
     <mat-card-title>Want to start a charity campaign?</mat-card-title>
     <mat-card-subtitle>Sign up below and it could become a goal on our website!</mat-card-subtitle>
     <mat-card-content>
-      <app-personal-information-form></app-personal-information-form>
+      <app-personal-information-form #personalInfoForm
+                                     [hidden]="formType !== selectedFormTypes.PERSONAL_INFO"></app-personal-information-form>
+      <app-goal-form #goalForm
+                     [hidden]="formType !== selectedFormTypes.GOAL"></app-goal-form>
+      <div class="buttons-container">
+        <app-button (action)="switchForm(selectedFormTypes.PERSONAL_INFO)"
+                    [hoverEnabled]="true" [selected]="formType === selectedFormTypes.PERSONAL_INFO"
+                    label="Personal information"></app-button>
+        <app-button (action)="switchForm(selectedFormTypes.GOAL)"
+                    [hoverEnabled]="true" [selected]="formType === selectedFormTypes.GOAL"
+                    label="Submit a goal"></app-button>
+      </div>
+      <app-button (action)="submit()" [disabled]="!personalInfoForm.form.valid || !goalForm.form.valid"
+                  [hoverEnabled]="true"
+                  class="submit-button"
+                  label="Submit">
+      </app-button>
     </mat-card-content>
   </mat-card>
 </div>

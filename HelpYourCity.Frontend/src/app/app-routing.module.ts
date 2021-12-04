@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {GoalDetailsPageComponent} from './pages/goal-details-page/goal-details-page.component';
-import {PaymentPageComponent} from "./pages/payment-page/payment-page.component";
+import {GoalEventsPageComponent} from './pages/goal-events-page/goal-events-page.component';
 
 const routes: Routes = [
   {
@@ -13,12 +13,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/goal-proposal-page/goal-proposal-page.module').then(m => m.GoalProposalPageModule)
   },
   {
+    path: 'payment',
+    loadChildren: () => import('./pages/payment-pages/payment-pages.module').then(m => m.PaymentPagesModule)
+  },
+  {
     path: 'goal/:slug',
     component: GoalDetailsPageComponent
   },
   {
-    path: 'payment',
-    component: PaymentPageComponent
+    path: 'goal/events/:slug',
+    component: GoalEventsPageComponent
   },
   {
     path: '**',
@@ -31,4 +35,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
