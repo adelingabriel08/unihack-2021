@@ -28,23 +28,24 @@ namespace HelpYourCity.Persistence.Services
             {
                 Directory.CreateDirectory(uploadedFilesDirectory);
             }
-
+            
             var fileEntity = new UploadedFile()
             {
                 Name = SanitizeFileName(file.FileName) + "_" + GenerateRandomHexString(),
                 Extension = Path.GetExtension(file.FileName).Substring(1).ToLower(),
                 OrginalName = file.FileName
             };
-
-
             var filePath = Path.Combine(uploadedFilesDirectory, $"{fileEntity.Name}.{fileEntity.Extension}")
                 .Replace("\\", "/");
+
+            fileEntity.Path = filePath;
+
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
                 await file.CopyToAsync(fileStream);
             }
 
-            fileEntity.Path = filePath;
+            fileEntity.Path = "/" + filePath;
 
             var fileEntry = await _dbContext.UploadedFiles.AddAsync(fileEntity);
 
