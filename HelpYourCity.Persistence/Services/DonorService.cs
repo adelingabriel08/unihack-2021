@@ -19,7 +19,22 @@ namespace HelpYourCity.Persistence.Services
 
         public async Task<List<Donor>> getAllDonorsForAGoal(int id)
         {
-            var donors = await _dbContext.Donors.Where(p => p.GoalId == id).ToListAsync();
+            var donors = await _dbContext.Donors
+                .Where(p => p.GoalId == id)
+                .Where(p => p.PaymentId != null && p.PaymentId > 0)
+                .OrderByDescending(p => p.CreatedAtTime)
+                .Take(10)
+                .ToListAsync();
+            return donors;
+        }
+        public async Task<long> getQuantityForDonors(int id)
+        {
+                var donors = await _dbContext.Donors
+                    .Where(p => p.GoalId == id)
+                    .Where(p => p.PaymentId != null && p.PaymentId > 0)
+                    .OrderByDescending(p => p.CreatedAtTime)
+                    .SumAsync(p => p.Quantity);
+            
             return donors;
         }
     }

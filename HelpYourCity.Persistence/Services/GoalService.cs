@@ -21,12 +21,31 @@ namespace HelpYourCity.Persistence.Services
 
         public async Task<List<Goal>> GetPublishedGoals()
         {
-            return await _dbContext.Goals.Where(p => p.IsPublished == true).ToListAsync();
+            var goals = await _dbContext.Goals.Where(p => p.IsPublished == true).ToListAsync();
+            foreach (var goal in goals)
+            {
+                var numberOfDonations = await _dbContext.Donors
+                    .Where(p => p.GoalId == goal.Id)
+                    .Where(p => p.PaymentId != null && p.PaymentId > 0)
+                    .OrderByDescending(p => p.CreatedAtTime)
+                    .SumAsync(p => p.Quantity);
+
+                goal.NumberOfDonations = numberOfDonations;
+            }
+
+            return goals;
         }
 
         public async Task<Goal> GetGoalBySlug(string slug)
         {
-            var item =await  _dbContext.Goals.Where(p => p.IsPublished == true).FirstOrDefaultAsync(p => p.Slug == slug);
+            var item = await _dbContext.Goals.Where(p => p.IsPublished == true)
+                .FirstOrDefaultAsync(p => p.Slug == slug);
+            if(item != null)
+                item.NumberOfDonations = await _dbContext.Donors
+                    .Where(p => p.GoalId == item.Id)
+                    .Where(p => p.PaymentId != null && p.PaymentId > 0)
+                    .OrderByDescending(p => p.CreatedAtTime)
+                    .SumAsync(p => p.Quantity);
             return item;
         }
 
@@ -52,10 +71,9 @@ namespace HelpYourCity.Persistence.Services
             {
                 var stripePriceId = await _stripeService.AddProductToStripe(goalToModify);
                 goalToModify.StripePriceCorrelationId = stripePriceId;
-
             }
-            await _dbContext.SaveChangesAsync();
 
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

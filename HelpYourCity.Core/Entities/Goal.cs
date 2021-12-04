@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using HelpYourCity.Core.Entities.Base;
 
 namespace HelpYourCity.Core.Entities
@@ -18,6 +19,9 @@ namespace HelpYourCity.Core.Entities
         [Required] public string Slug { get; set; }
         [Required] public string GoalItemName { get; set; }
         public string? StripePriceCorrelationId { get; set; }
+        
+        [NotMapped]
+        public long? NumberOfDonations {get;set;}
 
         public bool IsPublished { get; set; } = false;
 
