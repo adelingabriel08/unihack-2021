@@ -17,7 +17,7 @@ namespace HelpYourCity.Core.Entities
         [Required] public uint PricePerUnit { get; set; }
         [Required] public string Slug { get; set; }
         [Required] public string GoalItemName { get; set; }
-        public string StripePriceCorrelationId { get; set; }
+        public string? StripePriceCorrelationId { get; set; }
 
         public bool IsPublished { get; set; } = false;
 

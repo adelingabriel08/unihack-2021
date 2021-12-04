@@ -16,24 +16,23 @@ namespace HelpYourCity.Persistence.Services
 {
     public class StripeService : IStripeService
     {
-        private readonly IGoalService _goalService;
         private readonly IConfiguration _configuration;
         private readonly IRepository<Donor> _donorRepository;
         private readonly IRepository<Payment> _paymentRepository;
         private readonly ApplicationDbContext _dbContext;
 
-        public StripeService(IGoalService goalService, 
-            IConfiguration configuration, 
+        public StripeService(
+            IConfiguration configuration,
             IRepository<Donor> donorRepository,
             IRepository<Payment> paymentRepository,
             ApplicationDbContext dbContext)
         {
-            _goalService = goalService;
             _configuration = configuration;
             _donorRepository = donorRepository;
             _paymentRepository = paymentRepository;
             _dbContext = dbContext;
         }
+
         public async Task<string> AddProductToStripe(Goal goal)
         {
             var productOptions = new ProductCreateOptions
@@ -41,7 +40,10 @@ namespace HelpYourCity.Persistence.Services
                 Name = goal.GoalItemName,
                 Active = true,
                 Description = goal.ShortDescription,
-                Images = new List<string>(){"https://www.thespruce.com/thmb/tClzdZVdo_baMV7YA_9HjggPk9k=/4169x2778/filters:fill(auto,1)/the-difference-between-trees-and-shrubs-3269804-hero-a4000090f0714f59a8ec6201ad250d90.jpg"}
+                Images = new List<string>()
+                {
+                    "https://www.thespruce.com/thmb/tClzdZVdo_baMV7YA_9HjggPk9k=/4169x2778/filters:fill(auto,1)/the-difference-between-trees-and-shrubs-3269804-hero-a4000090f0714f59a8ec6201ad250d90.jpg"
+                }
             };
 
             var productService = new ProductService();
@@ -54,17 +56,17 @@ namespace HelpYourCity.Persistence.Services
                 Currency = "eur",
                 Nickname = "PricePerUnit",
                 Product = product.Id,
-                UnitAmount = goal.PricePerUnit*100 
+                UnitAmount = goal.PricePerUnit * 100
                 // multiplied because we do not have floating prices
             };
             var priceService = new PriceService();
             var price = await priceService.CreateAsync(priceOptions);
-            return product.Id;
+            return price.Id;
         }
 
         public async Task<PaymentOptions> GetPaymentOptions(PaymentRequestViewModel paymentVm)
         {
-            var goal = await _goalService.GetGoalWithImageById(paymentVm.GoalId);
+            var goal = await _dbContext.Goals.FirstOrDefaultAsync(p => p.Id == paymentVm.GoalId);
             if (goal is null)
                 return null;
 
@@ -83,17 +85,19 @@ namespace HelpYourCity.Persistence.Services
                 Quantity = paymentVm.Quantity
             };
             var donorEntry = await _donorRepository.AddOne(donor);
-            
+
             return new PaymentOptions()
             {
                 SuccessUrl = _configuration["Stripe:SuccessUrl"],
                 CancelUrl = _configuration["Stripe:CancelUrl"],
                 CustomerEmail = paymentVm.Email,
-                LineItems = new List<object>(){new {Price = goal.StripePriceCorrelationId, Quantity = paymentVm.Quantity}},
+                LineItems = new List<object>()
+                    {new {Price = goal.StripePriceCorrelationId, Quantity = paymentVm.Quantity}},
                 Mode = "payment",
                 SubmitType = "pay"
             };
         }
+
         public async Task ProcessPaymentSucceeded(Event stripeEvent)
         {
             var customer = stripeEvent.Data.Object as Customer;
@@ -110,7 +114,6 @@ namespace HelpYourCity.Persistence.Services
 
             donor.PaymentId = paymentEntity.Id;
             await _dbContext.SaveChangesAsync();
-
         }
     }
 }

@@ -9,7 +9,8 @@ namespace HelpYourCity.Core.Contracts
         Task<List<Goal>> GetPublishedGoals();
         Task<Goal> GetGoalBySlug(string slug);
         Task<Goal> GetGoalWithImageById(int goalId);
-        
-        
+
+        Task EditGoal(Goal goal);
+
     }
 }
