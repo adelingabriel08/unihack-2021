@@ -29,6 +29,14 @@ namespace HelpYourCity.API
             services.AddRazorPages();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            services.AddCors(options =>
+                {
+                    options.AddPolicy(name: "CorsPolicy", builder =>
+                    {
+                        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    });
+                }
+            );
             services.AddPersistenceServices(Configuration.GetConnectionString("HelpYourCity"));
         }
 
