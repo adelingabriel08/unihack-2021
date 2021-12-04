@@ -14,7 +14,9 @@ namespace HelpYourCity.Persistence
                 options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString),
                     b => b.MigrationsAssembly("HelpYourCity.API")
                 ));
-            services.AddScoped<ITestService, TestService>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IGoalService,GoalService>();
+            services.AddScoped<IProposalService, ProposalService>();
             return services;
         }
     }
