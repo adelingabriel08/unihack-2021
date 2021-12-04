@@ -1,13 +1,13 @@
 <div class="menu-container">
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" mat-icon-button>
     <mat-icon>menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="router.navigate(['goal'])">
+    <button (click)="router.navigate(['goal'])" mat-menu-item>
       <mat-icon>domain_verification</mat-icon>
       <span>Goals</span>
     </button>
-    <button mat-menu-item (click)="router.navigate(['propose-goal'])">
+    <button (click)="router.navigate(['propose-goal'])" mat-menu-item>
       <mat-icon>lightbulb</mat-icon>
       <span>Propose a Goal</span>
     </button>

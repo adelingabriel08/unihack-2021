@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {loadStripe, RedirectToCheckoutOptions, Stripe} from '@stripe/stripe-js';
 import {Observable} from 'rxjs';
@@ -9,17 +9,13 @@ import {IDonor} from '../models/donor.model';
   providedIn: 'root'
 })
 export class PaymentService {
+  readonly baseUrl = environment.apiUrl + '/api/payment';
   private _stripe: Stripe | null;
   private _stripeOptions: RedirectToCheckoutOptions;
-  readonly baseUrl = environment.apiUrl + '/api/payment';
 
   constructor(
     private readonly _http: HttpClient
-  ) { }
-
-  private _getOptions(donor: IDonor): Observable<RedirectToCheckoutOptions> {
-    const url = this.baseUrl + '/GetOptions';
-    return this._http.post<RedirectToCheckoutOptions>(url, donor);
+  ) {
   }
 
   async redirectToCheckout(donor: IDonor): Promise<void> {
@@ -29,5 +25,10 @@ export class PaymentService {
       this._stripeOptions = res;
       this._stripe?.redirectToCheckout(this._stripeOptions);
     })
+  }
+
+  private _getOptions(donor: IDonor): Observable<RedirectToCheckoutOptions> {
+    const url = this.baseUrl + '/GetOptions';
+    return this._http.post<RedirectToCheckoutOptions>(url, donor);
   }
 }

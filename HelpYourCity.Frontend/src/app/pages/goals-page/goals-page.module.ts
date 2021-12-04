@@ -19,13 +19,13 @@ const routes: Routes = [
     GoalsPageComponent,
     GoalCardComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        MatCardModule,
-        SharedModule,
-        MatProgressSpinnerModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatCardModule,
+    SharedModule,
+    MatProgressSpinnerModule
+  ]
 })
 export class GoalsPageModule {
 }

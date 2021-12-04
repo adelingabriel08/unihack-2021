@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {IGoal} from '../../../models/goal.model';
@@ -26,7 +26,8 @@ export class PaymentFormComponent {
     private readonly _formBuilder: FormBuilder,
     private readonly _paymentService: PaymentService,
     private readonly _snack: MatSnackBar
-  ) { }
+  ) {
+  }
 
   async submit(): Promise<void> {
     const donor: IDonor = {...this.form.value, quantity: this.data.quantity, goalId: this.data.goal.id};

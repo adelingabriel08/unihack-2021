@@ -21,7 +21,7 @@ import {
 } from './pages/goal-events-page/event-application-form/event-application-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { PaymentFormComponent } from './pages/goal-details-page/payment-form/payment-form.component';
+import {PaymentFormComponent} from './pages/goal-details-page/payment-form/payment-form.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({

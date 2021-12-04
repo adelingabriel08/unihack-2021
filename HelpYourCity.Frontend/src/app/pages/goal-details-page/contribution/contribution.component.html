@@ -5,19 +5,19 @@
     <div class="column">
       <div class="row">
         <app-button (action)="setValue(5)"
-                    label="5"
-                    [selected]="value === 5"></app-button>
+                    [selected]="value === 5"
+                    label="5"></app-button>
         <app-button (action)="setValue(10)"
-                    label="10"
-                    [selected]="value === 10"></app-button>
+                    [selected]="value === 10"
+                    label="10"></app-button>
       </div>
       <div class="row">
         <app-button (action)="setValue(25)"
-                    label="25"
-                    [selected]="value === 25"></app-button>
+                    [selected]="value === 25"
+                    label="25"></app-button>
         <app-button (action)="setValue(50)"
-                    label="50"
-                    [selected]="value === 50"></app-button>
+                    [selected]="value === 50"
+                    label="50"></app-button>
       </div>
       <mat-form-field>
         <mat-label>Or choose a custom amount...</mat-label>
@@ -28,6 +28,6 @@
   <ng-container *ngIf="contributionType === contributionTypes.VOLUNTEERING">
     <p class="large-text">I want to volunteer!</p>
   </ng-container>
-  <app-button [disabled]="isDisabled()" (action)="handleNext(goal)"
+  <app-button (action)="handleNext(goal)" [disabled]="isDisabled()"
               [hoverEnabled]="true" [label]="'Next'" class="next-button"></app-button>
 </div>

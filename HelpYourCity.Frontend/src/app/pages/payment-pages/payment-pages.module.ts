@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PaymentSuccesPageComponent } from './payment-succes-page/payment-succes-page.component';
-import { PaymentFailurePageComponent } from './payment-failure-page/payment-failure-page.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {PaymentSuccesPageComponent} from './payment-succes-page/payment-succes-page.component';
+import {PaymentFailurePageComponent} from './payment-failure-page/payment-failure-page.component';
 import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from '../../shared/shared.module';
 
@@ -21,4 +21,5 @@ const routes: Routes = [
     SharedModule
   ]
 })
-export class PaymentPagesModule { }
+export class PaymentPagesModule {
+}
