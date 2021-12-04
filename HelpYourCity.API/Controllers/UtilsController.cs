@@ -17,9 +17,7 @@ namespace HelpYourCity.API.Controllers
         private readonly IEmailService _emailService;
         private readonly IStripeService _stripeService;
         private readonly IMapper _mapper;
-
-        public UtilsController(UserManager<IdentityUser> userManager,IEmailService emailService)
-        public UtilsController(UserManager<IdentityUser> userManager, IStripeService stripeService, IMapper mapper)
+        public UtilsController(UserManager<IdentityUser> userManager,IEmailService emailService, IStripeService stripeService, IMapper mapper)
         {
             _userManager = userManager;
             _emailService = emailService;
