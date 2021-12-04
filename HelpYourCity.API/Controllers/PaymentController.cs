@@ -29,10 +29,9 @@ namespace HelpYourCity.API.Controllers
                     Request.Headers["Stripe-Signature"], "whsec_gb0iDbJdsAUppA0F7RDh9W4wHQMQxfQ5");
 
                 // Handle the event
-                if (stripeEvent.Type == Events.PaymentIntentSucceeded)
+                if (stripeEvent.Type == Events.CustomerCreated)
                 {
-                    Console.WriteLine("Event received!");
-                    Console.WriteLine(stripeEvent.ToJson());
+                    await _stripeService.ProcessPaymentSucceeded(stripeEvent);
                 }
                 // ... handle other event types
                 else

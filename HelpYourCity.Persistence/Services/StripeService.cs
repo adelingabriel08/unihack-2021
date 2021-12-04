@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using HelpYourCity.Core.Contracts;
 using HelpYourCity.Core.Entities;
 using HelpYourCity.Core.ViewModels;
+using HelpYourCity.Persistence.EF;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Stripe;
 
 namespace HelpYourCity.Persistence.Services
@@ -14,12 +19,20 @@ namespace HelpYourCity.Persistence.Services
         private readonly IGoalService _goalService;
         private readonly IConfiguration _configuration;
         private readonly IRepository<Donor> _donorRepository;
+        private readonly IRepository<Payment> _paymentRepository;
+        private readonly ApplicationDbContext _dbContext;
 
-        public StripeService(IGoalService goalService, IConfiguration configuration, IRepository<Donor> donorRepository)
+        public StripeService(IGoalService goalService, 
+            IConfiguration configuration, 
+            IRepository<Donor> donorRepository,
+            IRepository<Payment> paymentRepository,
+            ApplicationDbContext dbContext)
         {
             _goalService = goalService;
             _configuration = configuration;
             _donorRepository = donorRepository;
+            _paymentRepository = paymentRepository;
+            _dbContext = dbContext;
         }
         public async Task<string> AddProductToStripe(Goal goal)
         {
@@ -80,6 +93,24 @@ namespace HelpYourCity.Persistence.Services
                 Mode = "payment",
                 SubmitType = "pay"
             };
+        }
+        public async Task ProcessPaymentSucceeded(Event stripeEvent)
+        {
+            var customer = stripeEvent.Data.Object as Customer;
+            var payment = new Payment()
+            {
+                EventId = stripeEvent.Id,
+                RequestId = stripeEvent.Request.Id,
+                Email = customer.Email,
+                FullName = customer.Name
+            };
+            var paymentEntity = await _paymentRepository.AddOne(payment);
+
+            var donor = await _dbContext.Donors.FirstOrDefaultAsync(p => p.Email == payment.Email);
+
+            donor.PaymentId = paymentEntity.Id;
+            await _dbContext.SaveChangesAsync();
+
         }
     }
 }
