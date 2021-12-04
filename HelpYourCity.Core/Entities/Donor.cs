@@ -22,8 +22,7 @@ namespace HelpYourCity.Core.Entities
 
         public Goal Goal { get; set; }
 
-
-        [Required] public int PaymentId { get; set; }
+        public int? PaymentId { get; set; }
 
         public Payment Payment { get; set; }
     }

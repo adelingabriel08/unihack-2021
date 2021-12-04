@@ -27,5 +27,10 @@ namespace HelpYourCity.Persistence.Services
             var item =await  _dbContext.Goals.Where(p => p.IsPublished == true).FirstOrDefaultAsync(p => p.Slug == slug);
             return item;
         }
+
+        public async Task<Goal> GetGoalWithImageById(int goalId)
+        {
+            return await _dbContext.Goals.Include(g => g.Image).SingleOrDefaultAsync(g => g.Id == goalId);
+        }
     }
 }
