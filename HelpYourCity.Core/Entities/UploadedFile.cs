@@ -10,5 +10,6 @@ namespace HelpYourCity.Core.Entities
         [Required] public string Extension { get; set; }
 
         [Required] public string OrginalName { get; set; }
+        public string Path { get; set; }
     }
 }
