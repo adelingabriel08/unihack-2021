@@ -5,6 +5,7 @@
   <img [src]="goal.image.path" alt="card-image" mat-card-image>
   <mat-card-content>
     <p class="medium-text">{{goal.shortDescription}}</p>
+    <app-button (action)="goToEvents()" label="See top donors"></app-button>
   </mat-card-content>
   <mat-card-footer>
     <app-progress-bar

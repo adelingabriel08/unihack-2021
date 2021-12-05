@@ -23,6 +23,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {PaymentFormComponent} from './pages/goal-details-page/payment-form/payment-form.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {GoalDonorsPageComponent} from './pages/goal-donors-page/goal-donors-page.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     GoalEventsPageComponent,
     EventCardComponent,
     EventApplicationFormComponent,
-    PaymentFormComponent
+    PaymentFormComponent,
+    GoalDonorsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSnackBarModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

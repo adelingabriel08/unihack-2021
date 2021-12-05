@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {IGoal} from '../models/goal.model';
 import {IVolunteeringEvent} from '../models/volunteering-event.model';
 import {IVolunteer} from '../models/volunteer.model';
+import {IDonor} from '../models/donor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,6 @@ export class GoalsService {
     private readonly _http: HttpClient
   ) {
   }
-
 
   getAll(): Observable<IGoal[]> {
     return this._http.get<IGoal[]>(this.baseUrl);
@@ -30,6 +30,11 @@ export class GoalsService {
   getVolunteeringEvents(id: number): Observable<IVolunteeringEvent[]> {
     const url = this.baseUrl + `/${id}/events`;
     return this._http.get<IVolunteeringEvent[]>(url);
+  }
+
+  getDonors(id: number): Observable<IDonor[]> {
+    const url = this.baseUrl + `/${id}/donors`;
+    return this._http.get<IDonor[]>(url);
   }
 
   volunteer(volunteer: IVolunteer): Observable<IVolunteer> {

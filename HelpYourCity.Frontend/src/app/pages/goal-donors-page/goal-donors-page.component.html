@@ -1,0 +1,32 @@
+<div [style.justify-content]="donors.length === 0 ? 'center' : 'flex-start'" class="page-container">
+  <ng-container *ngIf="donors.length === 0">
+    <mat-spinner></mat-spinner>
+  </ng-container>
+  <ng-container *ngIf="donors.length > 0">
+    <p class="heading">These are the top donors for {{goal.title}}!</p>
+    <table [dataSource]="donors" class="mat-elevation-z8" mat-table>
+      <ng-container matColumnDef="firstName">
+        <th *matHeaderCellDef mat-header-cell> First Name</th>
+        <td *matCellDef="let element" mat-cell> {{element.firstName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th *matHeaderCellDef mat-header-cell> Last Name</th>
+        <td *matCellDef="let element" mat-cell> {{element.lastName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="message">
+        <th *matHeaderCellDef mat-header-cell> Message</th>
+        <td *matCellDef="let element" mat-cell> {{element.message}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <th *matHeaderCellDef mat-header-cell> Quantity</th>
+        <td *matCellDef="let element" mat-cell> {{element.quantity}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+  </ng-container>
+</div>

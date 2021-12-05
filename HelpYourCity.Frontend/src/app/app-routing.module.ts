@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {GoalDetailsPageComponent} from './pages/goal-details-page/goal-details-page.component';
 import {GoalEventsPageComponent} from './pages/goal-events-page/goal-events-page.component';
+import {GoalDonorsPageComponent} from './pages/goal-donors-page/goal-donors-page.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'goal/events/:slug',
     component: GoalEventsPageComponent
+  },
+  {
+    path: 'goal/donors/:slug',
+    component: GoalDonorsPageComponent
   },
   {
     path: '**',
